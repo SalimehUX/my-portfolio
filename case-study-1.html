@@ -80,8 +80,12 @@
     </a>
   </div>
 
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
   <!-- ============ CASE STUDY HEADER ============ -->
-  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
     <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Case Study 01 — Achievers</p>
     <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
       Redesigning product page UI to build trust
@@ -125,8 +129,8 @@
   </section>
 
   <!-- ============ FINAL PRODUCT ============ -->
-  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
+  <section id="final-product" data-chapter="Final Product" class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Final Product</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Here are the 5 consistent product pages built to earn trust.</h2>
 
     <div class="browser-frame rounded-xl overflow-hidden border border-black/10 bg-white">
@@ -138,7 +142,7 @@
   </section>
 
   <!-- ============ HEURISTIC EVALUATION ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x" style="background-color: #FFFFFF;">
+  <section id="discovery" data-chapter="Discovery" class="border-t border-b border-black/[0.07] dashed-x" style="background-color: #FFFFFF;">
     <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div>
@@ -176,8 +180,8 @@
   </section>
 
   <!-- ============ CONSTRAINTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reality check</p>
+  <section id="reality-check" data-chapter="Reality Check" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reality Check</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 constraints I identified with my team</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-12">
       From the start we knew that changes had to roll out in phases considering technical limitations.
@@ -199,7 +203,7 @@
   </section>
 
   <!-- ============ HYPOTHESIS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="direction" data-chapter="Direction" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Direction</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-12 max-w-2xl">Hypothesis &amp; success metrics we set</h2>
@@ -228,7 +232,7 @@
   </section>
 
   <!-- ============ ACTIVITIES & OUTPUTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="process" data-chapter="Process" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Process</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-12">Activities &amp; outputs</h2>
     <div class="grid sm:grid-cols-3 gap-6">
@@ -263,9 +267,9 @@
   </section>
 
   <!-- ============ PROJECT TIMELINE ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="birds-eye-view" data-chapter="Birds-eye View" class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Birds-eye view</p>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Birds-eye View</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Project timeline</h2>
       <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
         I created a source of truth in Figma to communicate my process with multiple stakeholders.
@@ -275,8 +279,8 @@
   </section>
 
   <!-- ============ COMPETITIVE ANALYSIS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Competitive research</p>
+  <section id="competitive-research" data-chapter="Competitive Research" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Competitive Research</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">6 must-haves from my competitive analysis</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
       To bring impactful change to our product pages, I researched what our top three competitors —
@@ -305,10 +309,10 @@
   </section>
 
   <!-- ============ USER RESEARCH INSIGHTS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="voice-of-the-user" data-chapter="Voice of the User" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
       <div>
-        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Voice of the user</p>
+        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Voice of the User</p>
         <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
           I discovered <span class="text-violet">2 key insights</span> from user research
         </h2>
@@ -351,8 +355,8 @@
   </section>
 
   <!-- ============ PAIN POINTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Journey mapping</p>
+  <section id="journey-mapping" data-chapter="Journey Mapping" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Journey Mapping</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 pain points I identified across the user journey</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
       I created a user journey map. Then, through testing and user interviews, I identified gaps
@@ -373,9 +377,9 @@
   </section>
 
   <!-- ============ IDEATION ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="ideation" data-chapter="Ideation" class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Problem statement → ideation</p>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Ideation</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Reflecting on all my research, it was time to define the problem statement</h2>
       <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
         I went over solutions I'd come up with using the Crazy 8s method for ideation, evaluated
@@ -389,8 +393,8 @@
   </section>
 
   <!-- ============ IMPLEMENTATION PLAN ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">And now… implementation</p>
+  <section id="implementation" data-chapter="Implementation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Implementation</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Mapping the required sections for each product</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
       I sat with my PM and mapped out all the required sections for each product in Miro, then
@@ -413,9 +417,9 @@
   </section>
 
   <!-- ============ FINAL DESIGN SYSTEM & PRODUCT ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="bringing-it-to-life" data-chapter="Bringing It to Life" class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Bringing it to life</p>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Bringing It to Life</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">I used our style guide and design system to prototype</h2>
       <img src="images/case-study-1/style-guide.png" class="rounded-2xl border border-black/10 w-full h-auto mb-14" alt="Achievers style guide and design system" />
 
@@ -435,7 +439,7 @@
   </section>
 
   <!-- ============ USABILITY TESTING ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="validation" data-chapter="Validation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Validation</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Eye-opening discoveries from usability testing after launch</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
@@ -462,9 +466,9 @@
   </section>
 
   <!-- ============ IMPACT & RESULTS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="impact-results" data-chapter="Impact &amp; Results" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-6">Impact &amp; results</p>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-6">Impact &amp; Results</p>
       <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
         Our sales department reported a<br class="hidden sm:block" />
         <span class="text-violet">20% increase</span> in qualified leads
@@ -474,7 +478,7 @@
   </section>
 
   <!-- ============ FINAL THOUGHTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="reflection" data-chapter="Reflection" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reflection</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Final thoughts</h2>
     <div class="space-y-6 max-w-3xl">
@@ -513,6 +517,9 @@
       </div>
     </div>
   </section>
+
+    </main>
+  </div>
 
   <!-- ============ FOOTER / CTA ============ -->
   <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
@@ -570,6 +577,7 @@
       });
     })();
   </script>
+  <script src="js/chapter-nav.js"></script>
 
 </body>
 </html>
