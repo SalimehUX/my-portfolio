@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Points Loyalty App — Lightspeed | Salimeh Miller</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F7F4EF; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+  .browser-frame {
+    box-shadow: 0 20px 40px -20px rgba(23,20,15,0.25);
+  }
+  .num-badge {
+    font-variant-numeric: tabular-nums;
+  }
+  .pill {
+    font-family: 'Inter', sans-serif;
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/70">
+        <a href="index.html#work" class="px-4 py-2 rounded-full bg-black/5 text-ink">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ BACK LINK ============ -->
+  <div class="max-w-6xl mx-auto px-6 pt-8">
+    <a href="index.html#work" class="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-widest text-ink/45 hover:text-violet transition">
+      <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M9 5H1M1 5L4.5 1.5M1 5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All work
+    </a>
+  </div>
+
+  <!-- ============ CASE STUDY HEADER ============ -->
+  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Case Study 04 — Lightspeed</p>
+    <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
+      Designing convenience to win customer loyalty
+    </h1>
+    <p class="mt-7 max-w-2xl text-[15px] sm:text-lg leading-relaxed text-ink/70">
+      A unified app that let users collect loyalty points from multiple stores and redeem coupons,
+      resulting in <span class="text-violet font-semibold">85% of testers saying they'd recommend it to a friend.</span>
+    </p>
+    <p class="mt-5 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-ink/55">
+      Lightspeed researchers ran qualitative research to identify underserved user needs, then
+      quantitative research to find which ones were most important and least satisfied. I combined
+      Jobs-To-Be-Done and Design Thinking to dig deeper and design a solution.
+    </p>
+
+    <!-- Meta grid -->
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-5 gap-8 border-t border-black/[0.07] pt-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Role</p>
+        <p class="text-sm font-medium">UX Researcher &amp; UI Designer</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Year</p>
+        <p class="text-sm font-medium">2022</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Duration</p>
+        <p class="text-sm font-medium">November 2022</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Team</p>
+        <p class="text-sm font-medium leading-relaxed">Individual project</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Deliverables</p>
+        <p class="text-sm font-medium leading-relaxed">Quantitative research, competitive analysis, persona, JTBD, storyboard, task flow, wireframes, hi-fi prototype, user testing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL PRODUCT ============ -->
+  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">The Points App — one place for loyalty cards and coupons.</h2>
+
+    <div class="browser-frame rounded-xl overflow-hidden border border-black/10 bg-white">
+      <div class="flex items-center gap-1.5 px-3 py-2 bg-fog border-b border-black/5">
+        <span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span>
+      </div>
+      <img src="https://placehold.co/1200x700/EDE9E1/17140F?text=The+Points+App&font=inter" class="w-full h-auto" alt="The Points loyalty app final product" />
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">The problem</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
+        Loyalty cards nobody carries, and store owners buried in clicks
+      </h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-8">
+        Customers never had their loyalty cards on hand when they needed them, and store owners
+        wanted to find customer info with fewer clicks in their system.
+      </p>
+
+      <div class="max-w-2xl rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-5 mb-10">
+        <p class="text-sm font-semibold text-red-600">⚠ Loyalty cards left at home, at the exact moment they're needed</p>
+      </div>
+
+      <div class="max-w-2xl">
+        <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">The solution</p>
+        <p class="text-[15px] leading-relaxed text-ink/70">
+          Let's clear the fog and redesign the navigation to be user-friendly — one app, multiple
+          stores, points and coupons in a single place.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERVIEW OF STEPS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Process</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Overview of steps taken</h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Quantitative research</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Competitive analysis</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Problem statement definition</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">User persona</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Core functional JTBD</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">How Might We questions</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">User storyboarding</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Task flow</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Low-fi wireframing</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Prototyping &amp; testing</span>
+    </div>
+  </section>
+
+  <!-- ============ QUANTITATIVE RESEARCH ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Discovery</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Quantitative research &amp; data synthesis</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I collected feedback from end-users to narrow down unmet needs to solve, then categorized
+        all the data to see which unmet needs to prioritize.
+      </p>
+      <img src="https://placehold.co/1200x640/FFFFFF/17140F?text=Survey+Results+%26+Data+Synthesis&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Quantitative research survey results and data synthesis" />
+    </div>
+  </section>
+
+  <!-- ============ COMPETITIVE ANALYSIS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Competitive research</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Competitive analysis: pros &amp; cons</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      I peeked at solutions already out there to understand the rules of the game before designing
+      my own.
+    </p>
+    <img src="https://placehold.co/1200x500/FFFFFF/17140F?text=Competitive+Analysis&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Competitive analysis of loyalty apps" />
+  </section>
+
+  <!-- ============ PROBLEM STATEMENT ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Root cause</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Problem statement: the 5 whys</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I used the 5 whys method to get to the root cause of the issue before jumping to solutions.
+      </p>
+      <img src="https://placehold.co/1200x520/201B2E/F7F4EF?text=5+Whys+Problem+Statement&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Five whys problem statement exercise" />
+    </div>
+  </section>
+
+  <!-- ============ USER PERSONA ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+    <div>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Who we're designing for</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
+        User persona: <span class="text-violet">Mikey</span>
+      </h2>
+      <p class="text-[15px] leading-relaxed text-ink/65">
+        I built a user persona based on the research participants to keep the team grounded in a
+        real point of view.
+      </p>
+      <div class="mt-8 rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-3">Pain points</p>
+        <p class="text-sm leading-relaxed text-ink/65 mb-5">
+          I never have my loyalty cards with me when I need them.
+        </p>
+        <p class="text-sm font-semibold mb-3">Desires</p>
+        <p class="text-sm leading-relaxed text-ink/65">
+          I'd like to receive coupons and discount codes and have them ready without going to my
+          email to find them.
+        </p>
+      </div>
+    </div>
+    <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
+      <div class="absolute inset-0 grain opacity-40"></div>
+      <div class="relative">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">Meet Mikey</p>
+        <p class="font-serif text-3xl mb-1">Mikey</p>
+        <p class="text-[13px] text-cream/55 mb-6">38 &middot; Developer &middot; Toronto</p>
+        <p class="font-serif text-xl leading-snug">
+          "I want my brand loyalty to be rewarded."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JTBD ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Framing the need</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Core functional Jobs-To-Be-Done</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I had to reflect on "what job are our users trying to get done?"
+      </p>
+      <div class="rounded-2xl card-glow grain relative overflow-hidden p-8 max-w-xl">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-white/40 mb-4">Jobs-To-Be-Done</p>
+        <p class="font-serif text-xl sm:text-2xl text-white leading-snug">
+          Get discounts when shopping.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HMW / STORYBOARD / TASK FLOW ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Ideation</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">How Might We, storyboarding &amp; task flow</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      Reframing the problem into "How Might We" questions to ideate solutions, then storyboarding
+      how the user would benefit before mapping the actions and screens needed to get the job done.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-6 mb-6">
+      <img src="https://placehold.co/700x520/FFFFFF/17140F?text=How+Might+We&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="How Might We ideation questions" />
+      <img src="https://placehold.co/700x520/FFFFFF/17140F?text=Storyboard&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="User storyboard sketches" />
+    </div>
+    <img src="https://placehold.co/1200x480/FFFFFF/17140F?text=Task+Flow&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Task flow diagram" />
+  </section>
+
+  <!-- ============ STYLE GUIDE & WIREFRAMES ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Foundations</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Style guide &amp; low-fi wireframes</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I created a style guide for the UI look and feel while considering the industry and UX
+        principles, then mapped out the actions and screens the user needed to get the job done.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <img src="https://placehold.co/700x560/FFFFFF/17140F?text=Style+Guide&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Points app style guide" />
+        <img src="https://placehold.co/700x560/FFFFFF/17140F?text=Low-Fi+Wireframes&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Low-fi wireframes" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS: PROTOTYPE & TESTING ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Results</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Hi-fi prototype &amp; user testing</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      I built the prototype in Figma while staying focused on the users' unmet need, then tested it
+      on Maze with 12 users and received constructive feedback that improved the prototype.
+    </p>
+    <img src="https://placehold.co/1200x640/FFFFFF/17140F?text=Hi-Fi+Prototype+Screens&font=inter" class="rounded-2xl border border-black/10 w-full h-auto mb-10" alt="Hi-fi prototype screens" />
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-3">User testing</p>
+        <p class="text-sm leading-relaxed text-ink/65">
+          Tested with 12 users on Maze. Users liked that they could view all coupons in one place
+          without carrying multiple cards, and scan the QR code for quick account verification at
+          the cash register.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6 flex flex-col justify-center items-center text-center">
+        <p class="font-serif text-4xl text-violet mb-2">85%</p>
+        <p class="text-sm text-ink/65">of testers said they'd recommend the app to a friend</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL PRODUCT SCREENS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Final product</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">The Points App</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <img src="https://placehold.co/700x850/201B2E/F7F4EF?text=Points+App+%E2%80%94+Wallet&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Points app wallet screen" />
+        <img src="https://placehold.co/700x850/201B2E/F7F4EF?text=Points+App+%E2%80%94+QR+Scan&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Points app QR scan screen" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT & RESULTS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-6">Impact &amp; results</p>
+    <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
+      A unified app that made<br class="hidden sm:block" />
+      <span class="text-violet">brand loyalty</span> easy to keep
+    </p>
+    <p class="mt-6 text-sm text-ink/50 font-mono uppercase tracking-widest">85% would recommend the app to a friend</p>
+  </section>
+
+  <!-- ============ FINAL THOUGHTS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reflection</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Final thoughts</h2>
+      <div class="space-y-6 max-w-3xl">
+        <p class="text-[15px] leading-relaxed text-ink/70 border-l-2 border-violet/40 pl-6">
+          I would have liked to develop two personas — one for the end-user and one for the store
+          owner — and design the experience for both.
+        </p>
+        <p class="text-[15px] leading-relaxed text-ink/70 border-l-2 border-violet/40 pl-6">
+          If I had more time, I would have loved to design a browser extension that helped users
+          collect points when shopping online. Users raised this concern many times during the
+          quantitative research.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORK ============ -->
+  <section class="bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-10">Check out what else I've worked on</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="case-study-1.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">UI Redesign of Product Pages</p>
+          <p class="text-sm text-violet font-medium">20% increase in qualified leads</p>
+        </a>
+        <a href="case-study-2.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Collaboration Feature</p>
+          <p class="text-sm text-violet font-medium">25% higher product engagement</p>
+        </a>
+        <a href="case-study-3.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Form Landing Page</p>
+          <p class="text-sm text-violet font-medium">80% higher user completion rate</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/55 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/40 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

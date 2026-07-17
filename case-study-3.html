@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Form Landing Page — Achievers | Salimeh Miller</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F7F4EF; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+  .browser-frame {
+    box-shadow: 0 20px 40px -20px rgba(23,20,15,0.25);
+  }
+  .num-badge {
+    font-variant-numeric: tabular-nums;
+  }
+  .pill {
+    font-family: 'Inter', sans-serif;
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/70">
+        <a href="index.html#work" class="px-4 py-2 rounded-full bg-black/5 text-ink">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ BACK LINK ============ -->
+  <div class="max-w-6xl mx-auto px-6 pt-8">
+    <a href="index.html#work" class="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-widest text-ink/45 hover:text-violet transition">
+      <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M9 5H1M1 5L4.5 1.5M1 5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All work
+    </a>
+  </div>
+
+  <!-- ============ CASE STUDY HEADER ============ -->
+  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Case Study 03 — Achievers</p>
+    <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
+      Optimizing the form landing page for user completion
+    </h1>
+    <p class="mt-7 max-w-2xl text-[15px] sm:text-lg leading-relaxed text-ink/70">
+      I redesigned a customizable form that adjusts to the user's request, resulting in an
+      <span class="text-violet font-semibold">80% higher user completion rate.</span>
+    </p>
+    <p class="mt-5 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-ink/55">
+      The form landing page saw a 62% drop off. It mixed inquiries from current clients and new
+      prospects, and left sales reps confused about who their fresh leads actually were.
+    </p>
+    <p class="mt-4 max-w-2xl text-[13px] leading-relaxed text-ink/40 italic">
+      * Achievers is an employee engagement software that helps companies improve employee
+      satisfaction, resulting in higher productivity and retention.
+    </p>
+
+    <!-- Meta grid -->
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-5 gap-8 border-t border-black/[0.07] pt-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Role</p>
+        <p class="text-sm font-medium">UX/UI Designer &amp; Researcher</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Year</p>
+        <p class="text-sm font-medium">2023</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Duration</p>
+        <p class="text-sm font-medium">8 weeks</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Team</p>
+        <p class="text-sm font-medium leading-relaxed">UX Researcher (me), Product Manager, 3 Developers, 1 Copywriter, 1 Project Manager</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Deliverables</p>
+        <p class="text-sm font-medium leading-relaxed">User interviews, competitive analysis, ideation workshop, mockup, user testing, prototype, final presentation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL PRODUCT ============ -->
+  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">A customizable form that adjusts to the user's request.</h2>
+
+    <div class="browser-frame rounded-xl overflow-hidden border border-black/10 bg-white">
+      <div class="flex items-center gap-1.5 px-3 py-2 bg-fog border-b border-black/5">
+        <span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span>
+      </div>
+      <img src="https://placehold.co/1200x700/EDE9E1/17140F?text=Final+Customizable+Form&font=inter" class="w-full h-auto" alt="Final customizable form landing page" />
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">The problem</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
+        A 62% drop off on the form landing page, and a form that couldn't tell customers from prospects
+      </h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-8">
+        The form mixed inquiries from current clients and new prospects, which made it confusing
+        for sales reps looking for fresh leads.
+      </p>
+
+      <div class="max-w-2xl rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-5 mb-10">
+        <p class="text-sm font-semibold text-red-600">⚠ 62% drop off from the form landing page</p>
+      </div>
+
+      <div class="max-w-2xl">
+        <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Activities and outputs</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">5 user interviews</span>
+          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Affinity mapping</span>
+          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">PowerPoint slides</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY USER INSIGHT ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+    <div>
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Voice of the user</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
+        Key user insight: they <span class="text-violet">didn't see clear options</span> to communicate their needs
+      </h2>
+      <p class="text-[15px] leading-relaxed text-ink/65">
+        Product users were professionals from enterprise to mid-size businesses, and they weren't
+        sure the form was even meant for them.
+      </p>
+    </div>
+    <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
+      <div class="absolute inset-0 grain opacity-40"></div>
+      <div class="relative">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">In their words</p>
+        <p class="font-serif text-xl sm:text-2xl leading-snug">
+          "Does customer care apply to me or only to existing customers? We mainly use Zoom to
+          communicate with third parties."
+        </p>
+        <p class="mt-6 text-[13px] text-cream/55">— Director of HR, Springhill</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNICAL CONSTRAINTS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reality check</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 technical constraints stakeholder interviews revealed</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-12">
+        From the start we knew changes had to work within the limits of the current sales process.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet mb-3 num-badge">01</p>
+          <p class="text-sm font-medium">The current process requires sales to call prospects</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet mb-3 num-badge">02</p>
+          <p class="text-sm font-medium">Scheduling calendar meetings was not an option for unverified leads</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet mb-3 num-badge">03</p>
+          <p class="text-sm font-medium">Drop-down menus gave the option for a single selection only</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPETITIVE INTEL ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Competitive research</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Competitive intel: they distinguished current users from fresh prospects</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      Competitors offered a preferred method of communication and made it clear who the form was for.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6 mb-10">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-4">Competitor 1</p>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-3">Features</p>
+        <ul class="space-y-2 text-sm text-ink/60 leading-relaxed list-disc list-inside">
+          <li>Hyperlink "Are you a current user?"</li>
+          <li>Title tags for each field</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-4">Competitor 2</p>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-3">Features</p>
+        <ul class="space-y-2 text-sm text-ink/60 leading-relaxed list-disc list-inside">
+          <li>Multiple options for "How to be contacted"</li>
+          <li>Starts with 3 fields, gradually asks for more information</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Unique features used by competition</p>
+    <div class="grid sm:grid-cols-3 gap-6 mb-10">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">Clear classification for types of services to inquire about</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">3 options for communication, offered on the form</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">Form with multiple pages, gradually collecting more info</p>
+      </div>
+    </div>
+
+    <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Activities and outputs</p>
+    <div class="flex flex-wrap gap-3">
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Competitive analysis</span>
+      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Stakeholder checkpoint</span>
+    </div>
+  </section>
+
+  <!-- ============ PRIORITY MATRIX ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Prioritization</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Priority matrix: revealed 3 things to prioritize</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-12">
+        Separating customers from prospects, addressing user uncertainties about communication
+        methods, and driving users to complete the form rose to the top — plotted against effort
+        and importance.
+      </p>
+
+      <div class="rounded-2xl border border-black/[0.08] overflow-hidden bg-white">
+        <div class="grid grid-cols-2 text-center text-[11px] font-mono uppercase tracking-widest text-ink/40 border-b border-black/[0.08]">
+          <div class="py-3 border-r border-black/[0.08]">Low effort</div>
+          <div class="py-3">High effort</div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="p-6 border-r border-b border-black/[0.08] bg-violet/5">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-violet mb-4">Important</p>
+            <ul class="space-y-2 text-sm text-ink/70 leading-relaxed">
+              <li>Separating customers from prospects</li>
+              <li>Addressing user uncertainties about communication methods</li>
+              <li>Driving users to complete the form</li>
+              <li>Giving users 3 contact options via text, email or phone</li>
+            </ul>
+          </div>
+          <div class="p-6 border-b border-black/[0.08]">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-4">Important</p>
+            <ul class="space-y-2 text-sm text-ink/70 leading-relaxed">
+              <li>Reducing the form length</li>
+              <li>Creating an option for auto calendar booking</li>
+              <li>Chaining the form to a questionnaire across multiple pages to gradually collect info and qualify leads</li>
+            </ul>
+          </div>
+          <div class="p-6 border-r border-black/[0.08]">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-4">Not important</p>
+            <ul class="space-y-2 text-sm text-ink/60 leading-relaxed">
+              <li>Introducing animation for better interactivity</li>
+            </ul>
+          </div>
+          <div class="p-6">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-4">Not important</p>
+            <ul class="space-y-2 text-sm text-ink/60 leading-relaxed">
+              <li>Adding more fields to collect further information and segregate inquiries</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mt-10 mb-3">Activities and outputs</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Root cause analysis</span>
+        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Stakeholder requests</span>
+        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/60">Task flows</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR APPROACH ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Direction</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">Our approach</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">01</p>
+        <p class="text-sm font-medium">Ask users about their inquiry first</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">02</p>
+        <p class="text-sm font-medium">Customize the length of the form based on the scenario</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">03</p>
+        <p class="text-sm font-medium">Let them know that "if they miss our call, we'll follow up with an email" to put them at ease</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">04</p>
+        <p class="text-sm font-medium">Set their expectations by better communicating what will happen during the call</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCLUSION / OLD vs NEW ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Conclusion</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">The new form puts the user's needs at the centre of the design</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <img src="https://placehold.co/700x850/FFFFFF/17140F?text=Old+Form&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="Old form design" />
+          <p class="mt-3 text-sm text-center text-ink/55">Old form</p>
+        </div>
+        <div>
+          <img src="https://placehold.co/700x850/201B2E/F7F4EF?text=New+Form&font=inter" class="rounded-2xl border border-black/10 w-full h-auto" alt="New customizable form design" />
+          <p class="mt-3 text-sm text-center text-ink/55">New form</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIAL ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <div class="rounded-2xl card-glow grain relative overflow-hidden p-8 max-w-2xl">
+      <span class="font-serif text-4xl text-white/40 leading-none">"</span>
+      <p class="mt-2 font-serif text-xl sm:text-2xl text-white leading-snug">
+        Salimeh provided strong initial feedback and followed up with more detailed feedback
+        through her user testing sessions. This project resulted in an overall bump in website
+        engagement.
+      </p>
+      <p class="mt-6 text-[13px] text-white/55">— Lauren Ashmore, MBA<br />Direct Web Marketing Strategist – Global, Achievers</p>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT & RESULTS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-6">Impact &amp; results</p>
+      <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
+        User completion rates rose by<br class="hidden sm:block" />
+        <span class="text-violet">80%</span> on the form landing page
+      </p>
+      <p class="mt-6 text-sm text-ink/50 font-mono uppercase tracking-widest">a fun, interactive form that made sense to users</p>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORK ============ -->
+  <section class="border-t border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-10">Check out what else I've worked on</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="case-study-1.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">UI Redesign of Product Pages</p>
+          <p class="text-sm text-violet font-medium">20% increase in qualified leads</p>
+        </a>
+        <a href="case-study-2.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Collaboration Feature</p>
+          <p class="text-sm text-violet font-medium">25% higher product engagement</p>
+        </a>
+        <a href="case-study-4.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Points Loyalty App</p>
+          <p class="text-sm text-violet font-medium">85% Customer Satisfaction Score</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/55 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/40 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

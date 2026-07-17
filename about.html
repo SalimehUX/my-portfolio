@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Salimeh Miller</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F7F4EF; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/70">
+        <a href="index.html#work" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full bg-black/5 text-ink">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative max-w-6xl mx-auto px-6 pt-20 pb-16 sm:pt-24 sm:pb-20">
+    <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
+      <div class="order-2 md:order-1">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full grid place-items-center text-cream font-serif text-2xl sm:text-3xl shadow-lg"
+             style="background: conic-gradient(from 210deg, #6C4FF2, #A98BFF, #3A2A8C, #6C4FF2);">
+          SM
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Who am I, in 24 seconds</p>
+        <h1 class="font-serif leading-[1.06] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.6rem] max-w-3xl">
+          A Product &amp; Growth Designer who turns
+          <em class="italic font-normal text-violet">user insight</em> into
+          measurable outcomes.
+        </h1>
+        <p class="mt-7 max-w-xl text-[15px] sm:text-base leading-relaxed text-ink/65">
+          Based in Toronto, I work across research, UX/UI and growth to help B2B and
+          consumer teams understand their users and design for adoption — from
+          global SaaS platforms to scrappy freelance sprints. My work and personal
+          life share the same throughline: stay curious, stay close to the data,
+          and keep iterating.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Guiding philosophy</p>
+      <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-14 max-w-xl">Principles behind every project</h2>
+
+      <div class="divide-y divide-black/[0.08] border-t border-b border-black/[0.08]">
+
+        <div class="grid md:grid-cols-[3rem_1fr_1.2fr] gap-4 md:gap-10 py-10">
+          <span class="font-mono text-xs text-ink/35">01</span>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl mb-3">Empathetic Design Thinking</h3>
+            <p class="text-[14px] leading-relaxed text-ink/65">
+              At the heart of my design process is a deep commitment to empathy. By
+              thoroughly understanding user perspectives, I craft solutions that
+              genuinely connect — using strategic methods to advance projects and
+              make data-informed design decisions.
+            </p>
+          </div>
+          <ul class="text-[13px] text-ink/55 space-y-2.5 self-start">
+            <li class="flex gap-2"><span class="text-violet">—</span>Gathering in-depth user insights through comprehensive research</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Developing user personas and journey maps</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Organizing team activities to build empathy and understanding</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Regularly assessing design choices against user requirements</li>
+          </ul>
+        </div>
+
+        <div class="grid md:grid-cols-[3rem_1fr_1.2fr] gap-4 md:gap-10 py-10">
+          <span class="font-mono text-xs text-ink/35">02</span>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl mb-3">Iterative Design Process</h3>
+            <p class="text-[14px] leading-relaxed text-ink/65">
+              My design process is iterative. I constantly refine solutions using
+              new insights and feedback — a method that effectively reduces risk
+              and enhances the product over time.
+            </p>
+          </div>
+          <ul class="text-[13px] text-ink/55 space-y-2.5 self-start">
+            <li class="flex gap-2"><span class="text-violet">—</span>Quick prototype and test cycles</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Practical "try and improve" approach</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Using data to guide design choices</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Seeing every result as a chance to get better</li>
+          </ul>
+        </div>
+
+        <div class="grid md:grid-cols-[3rem_1fr_1.2fr] gap-4 md:gap-10 py-10">
+          <span class="font-mono text-xs text-ink/35">03</span>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl mb-3">Collaborative Innovation Practice</h3>
+            <p class="text-[14px] leading-relaxed text-ink/65">
+              I thrive on collaborative innovation. My team spirit and curious
+              mindset help me adapt to changing needs, encouraging diverse
+              viewpoints and cross-departmental teamwork so ideas can grow.
+            </p>
+          </div>
+          <ul class="text-[13px] text-ink/55 space-y-2.5 self-start">
+            <li class="flex gap-2"><span class="text-violet">—</span>Understanding how different elements interact</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Weighing how decisions play out long-term</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Teaming up with people from different fields</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Matching user needs with business goals and technical limits</li>
+          </ul>
+        </div>
+
+        <div class="grid md:grid-cols-[3rem_1fr_1.2fr] gap-4 md:gap-10 py-10">
+          <span class="font-mono text-xs text-ink/35">04</span>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl mb-3">Holistic Systems Thinking</h3>
+            <p class="text-[14px] leading-relaxed text-ink/65">
+              I tackle design challenges from a systems perspective, considering the
+              broader context and interconnections. This holistic view helps create
+              more sustainable and impactful solutions.
+            </p>
+          </div>
+          <ul class="text-[13px] text-ink/55 space-y-2.5 self-start">
+            <li class="flex gap-2"><span class="text-violet">—</span>Mapping how touchpoints, teams and systems connect</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Weighing the long-run impact of design decisions</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Partnering across disciplines to see the full picture</li>
+            <li class="flex gap-2"><span class="text-violet">—</span>Balancing sustainability with immediate business needs</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Services / Capabilities</p>
+    <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-10 max-w-xl">What I bring to a project</h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">UX/UI Design</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Design Thinking / Service Design</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Growth Design / Jobs-to-be-Done</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Workshops / Facilitation</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">UX Research</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Usability Testing / User Interviews / Ethnography</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Wireframing &amp; Prototyping</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Heuristic Evaluation / Competitive Analysis</span>
+      <span class="px-5 py-2.5 rounded-full border border-ink/15 text-sm font-medium bg-white/60">Conversion Rate Optimization (CRO)</span>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Experience</p>
+      <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-14 max-w-xl">Where I've worked</h2>
+
+      <div class="space-y-14">
+
+        <!-- Achievers -->
+        <div class="grid md:grid-cols-[14rem_1fr] gap-4 md:gap-10">
+          <div>
+            <h3 class="font-serif text-2xl">Achievers</h3>
+            <p class="mt-1 text-[13px] font-mono uppercase tracking-widest text-ink/45">UX/UI Designer &amp; CRO Specialist | UX Lead</p>
+          </div>
+          <div>
+            <p class="text-[14px] leading-relaxed text-ink/65 max-w-2xl">
+              Conducting research, user testing, ideation, wireframes and high-fidelity
+              experiences for iOS, Android and Web — collaborating closely with engineers,
+              product managers and stakeholders to design data-driven, human-centric
+              experiences. Co-strategist of the design and communication of the Achievers
+              website within the marketing team, and UX lead for a global SaaS employee
+              engagement platform.
+            </p>
+            <ul class="mt-5 space-y-2 text-[14px] text-ink/70">
+              <li class="flex gap-2"><span class="text-violet">→</span>Enhanced the website usability of a $100M B2B SaaS firm by restructuring the top navigation's information architecture</li>
+              <li class="flex gap-2"><span class="text-violet">→</span>Increased user comprehension with a user-focused content strategy tailored to Achievers' target audience</li>
+              <li class="flex gap-2"><span class="text-violet">→</span>Improved qualified-lead conversion by 25% by redesigning landing pages, forms, and running usability testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="grid md:grid-cols-[14rem_1fr] gap-4 md:gap-10">
+          <div>
+            <h3 class="font-serif text-2xl">Freelance</h3>
+            <p class="mt-1 text-[13px] font-mono uppercase tracking-widest text-ink/45">Product Designer — Select Clients</p>
+          </div>
+          <div class="space-y-8">
+            <div>
+              <p class="text-[14px] font-semibold">Lightspeed <span class="font-normal text-ink/45 font-mono text-[12px] tracking-wide">— Sept–Nov 2023 · Ecommerce</span></p>
+              <p class="mt-1.5 text-[14px] leading-relaxed text-ink/65">Enhanced mobile features for a loyalty points app, achieving an 85% Customer Satisfaction Score (CSAT).</p>
+            </div>
+            <div>
+              <p class="text-[14px] font-semibold">RCA Records <span class="font-normal text-ink/45 font-mono text-[12px] tracking-wide">— Apr–May 2022 · Entertainment</span></p>
+              <p class="mt-1.5 text-[14px] leading-relaxed text-ink/65">Worked in an agile cross-functional team using Design Thinking to produce an engaging musician site — competitive analysis and qualitative research to uncover user desires, pain points and frictions.</p>
+            </div>
+            <div>
+              <p class="text-[14px] font-semibold">H8S Coffee Shop <span class="font-normal text-ink/45 font-mono text-[12px] tracking-wide">— Jun–Jul 2022 · Retail</span></p>
+              <p class="mt-1.5 text-[14px] leading-relaxed text-ink/65">Interviewed stakeholders — owners, baristas, customers — to surface root causes of business pain points and design a mobile-first site.</p>
+            </div>
+            <div>
+              <p class="text-[14px] font-semibold">Avocademy <span class="font-normal text-ink/45 font-mono text-[12px] tracking-wide">— Aug–Sep 2022 · Web3/NFT</span></p>
+              <p class="mt-1.5 text-[14px] leading-relaxed text-ink/65">Built a solution to simplify Web3 jargon and address uncertainty around cryptocurrencies in the NFT marketplace via a Design Sprint and quantitative research.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repurpose House -->
+        <div class="grid md:grid-cols-[14rem_1fr] gap-4 md:gap-10">
+          <div>
+            <h3 class="font-serif text-2xl">Repurpose House</h3>
+            <p class="mt-1 text-[13px] font-mono uppercase tracking-widest text-ink/45">Digital Marketing Specialist</p>
+          </div>
+          <p class="text-[14px] leading-relaxed text-ink/65 max-w-2xl">
+            Worked with an ambitious team of female entrepreneurs, curating content from
+            blogs, podcasts, videos and customer testimonials for LinkedIn, Facebook,
+            Instagram and Twitter — writing long- and short-form copy with clear calls to action.
+          </p>
+        </div>
+
+        <!-- Behavioural Design Academy -->
+        <div class="grid md:grid-cols-[14rem_1fr] gap-4 md:gap-10">
+          <div>
+            <h3 class="font-serif text-2xl">Behavioural Design Academy</h3>
+            <p class="mt-1 text-[13px] font-mono uppercase tracking-widest text-ink/45">UX | Digital Marketing Specialist — AlterSpark</p>
+          </div>
+          <p class="text-[14px] leading-relaxed text-ink/65 max-w-2xl">
+            Helped build a marketing strategy that increased audience awareness through
+            user psychology, copywriting, keywords, SEO and Google Ads — auditing client
+            sites for SEO, brand consistency, mobile usability, accessibility and tone of voice.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Toolkit</p>
+    <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-12 max-w-xl">Tools I reach for</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-black/[0.02] border border-black/[0.02] rounded-2xl overflow-hidden">
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Figma</p><p class="mt-1 text-[13px] text-ink/55">Collaborative UI design tool</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Wrike</p><p class="mt-1 text-[13px] text-ink/55">Project management platform</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Notion</p><p class="mt-1 text-[13px] text-ink/55">All-in-one workspace for notes &amp; tasks</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Slack</p><p class="mt-1 text-[13px] text-ink/55">Messaging &amp; collaboration tool</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Miro</p><p class="mt-1 text-[13px] text-ink/55">Online collaborative whiteboard</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Canva</p><p class="mt-1 text-[13px] text-ink/55">Presentation &amp; design platform</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">CrazyEgg</p><p class="mt-1 text-[13px] text-ink/55">Website heatmap &amp; analytics tool</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Usertesting</p><p class="mt-1 text-[13px] text-ink/55">Remote user testing platform</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Framer</p><p class="mt-1 text-[13px] text-ink/55">Design beautiful responsive sites</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Webflow</p><p class="mt-1 text-[13px] text-ink/55">Build, launch &amp; optimize your site</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Adobe Suite</p><p class="mt-1 text-[13px] text-ink/55">Creative software collection</p></div>
+      <div class="bg-cream p-6"><p class="font-serif text-lg">Zoom</p><p class="mt-1 text-[13px] text-ink/55">Video conferencing platform</p></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/55 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/40 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

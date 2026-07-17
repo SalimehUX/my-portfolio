@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Salimeh Miller — Product & Growth Designer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F7F4EF; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  .dashed-y { background-image: linear-gradient(to bottom, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 1px 8px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/70">
+        <a href="#work" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="relative max-w-6xl mx-auto px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+    <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
+      <!-- Avatar monogram -->
+      <div class="order-2 md:order-1 flex md:flex-col items-center md:items-start gap-4">
+        <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full grid place-items-center text-cream font-serif text-2xl sm:text-3xl shadow-lg"
+             style="background: conic-gradient(from 210deg, #6C4FF2, #A98BFF, #3A2A8C, #6C4FF2);">
+          SM
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-ink/45 mt-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          Open to select projects
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <div class="order-1 md:order-2">
+        <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Product &amp; Growth Design — Toronto, CA</p>
+        <h1 class="font-serif leading-[1.04] tracking-tight text-[2.6rem] sm:text-6xl lg:text-[4.4rem]">
+          Hi, I'm Salimeh.<br />
+          I help products <em class="italic font-normal text-violet">grow.</em>
+        </h1>
+        <p class="mt-7 max-w-xl text-[15px] sm:text-base leading-relaxed text-ink/65">
+          I'm a Product &amp; Growth Designer from Toronto. I help B2B/B2C, SaaS and
+          consumer products increase their user adoption and engagement — through
+          research, iteration, and design that's grounded in how people actually behave.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="#work" class="inline-flex items-center gap-2 bg-ink text-cream text-sm font-medium px-6 py-3.5 rounded-full hover:bg-violet transition">
+            See my work
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 5H9M9 5L5.5 1.5M9 5L5.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 border border-ink/15 text-ink text-sm font-medium px-6 py-3.5 rounded-full hover:border-ink/40 transition">
+            Let's collaborate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AT A GLANCE ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4">
+      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
+        <p class="font-serif text-4xl sm:text-5xl">8+</p>
+        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/45">Clients &amp; teams served</p>
+      </div>
+      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
+        <p class="font-serif text-4xl sm:text-5xl">4</p>
+        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/45">Flagship case studies</p>
+      </div>
+      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
+        <p class="font-serif text-4xl sm:text-5xl">25%</p>
+        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/45">Avg. lift in engagement</p>
+      </div>
+      <div class="py-10 px-2 sm:px-8">
+        <p class="font-serif text-4xl sm:text-5xl">3</p>
+        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/45">Platforms — iOS, Android, Web</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section id="work" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <div class="flex items-end justify-between gap-4 mb-14">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Selected work</p>
+        <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Case studies &amp; shipped work</h2>
+      </div>
+      <span class="hidden sm:block text-sm text-ink/40 font-mono">04 projects</span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 sm:gap-8">
+
+      <!-- Project 1 -->
+      <a href="case-study-1.html" class="group block">
+        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <div class="absolute inset-0 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Redesigning product page UI<br />to build trust
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+        <div class="mt-5 flex items-start justify-between">
+          <div>
+            <h3 class="font-serif text-lg">UI Redesign of Product Pages</h3>
+            <p class="mt-1 text-sm text-ink/55">User impact: 5 comprehensible product pages</p>
+            <p class="text-sm text-violet font-medium">Biz impact: 20% increase in qualified leads</p>
+          </div>
+          <span class="mt-1 shrink-0 grid place-items-center w-9 h-9 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="case-study-2.html" class="group block">
+        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <div class="absolute inset-0 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Turning a recognition product into a collaborator finding tool
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+        <div class="mt-5 flex items-start justify-between">
+          <div>
+            <h3 class="font-serif text-lg">Collaboration Feature</h3>
+            <p class="mt-1 text-sm text-ink/55">User impact: Easily finding the expert within the company</p>
+            <p class="text-sm text-violet font-medium">Biz impact: 25% higher product engagement</p>
+          </div>
+          <span class="mt-1 shrink-0 grid place-items-center w-9 h-9 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="case-study-3.html" class="group block">
+        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <div class="absolute inset-0 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Optimizing the form landing page for user completion
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+        <div class="mt-5 flex items-start justify-between">
+          <div>
+            <h3 class="font-serif text-lg">Form Landing Page</h3>
+            <p class="mt-1 text-sm text-ink/55">User impact: A fun interactive form that made sense</p>
+            <p class="text-sm text-violet font-medium">Biz impact: 80% higher user completion rate</p>
+          </div>
+          <span class="mt-1 shrink-0 grid place-items-center w-9 h-9 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="case-study-4.html" class="group block">
+        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <div class="absolute inset-0 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Designing convenience to win customer loyalty
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+        <div class="mt-5 flex items-start justify-between">
+          <div>
+            <h3 class="font-serif text-lg">Points Loyalty App</h3>
+            <p class="mt-1 text-sm text-ink/55">User impact: 85% Customer Satisfaction Score</p>
+            <p class="text-sm text-violet font-medium">Biz impact: Brand loyalty made easy</p>
+          </div>
+          <span class="mt-1 shrink-0 grid place-items-center w-9 h-9 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ ABOUT STRIP ============ -->
+  <section id="about-strip" class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-16">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45">A bit about me</p>
+      <div>
+        <p class="font-serif text-2xl sm:text-3xl leading-snug tracking-tight">
+          Empathetic research, iterative design, and a bias toward measurable outcomes —
+          that's how I've helped teams like Achievers, Lightspeed and RCA Records
+          turn user insight into growth.
+        </p>
+        <a href="about.html" class="mt-8 inline-flex items-center gap-2 text-sm font-medium border-b border-ink/30 pb-0.5 hover:border-ink transition">
+          More about my process
+          <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1 5H9M9 5L5.5 1.5M9 5L5.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Kind words</p>
+    <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-14">What's it like to work with me?</h2>
+
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          I highly recommend Salimeh based on our work together at an HR Tech company.
+          Her exceptional communication skills, curiosity, and detail-oriented approach
+          were consistently impressive. Her deep understanding of user behavior led to
+          valuable insights that significantly improved our website's user experience.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Kara Fraser</span>
+          <span class="text-ink/45"> — UX Manager</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Awesome job with the new website navigation — it makes it so much easier to
+          surface all the valuable content that we have on the site but also makes the
+          new buyer journey so much more intuitive and sticky!
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Peter Liao</span>
+          <span class="text-ink/45"> — Director, Product Marketing</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Salimeh is a talented UX designer who played a pivotal role in helping us
+          conduct thorough market research, providing invaluable insights into our
+          target markets and their behaviour on our micro sites.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Kristi de Asis</span>
+          <span class="text-ink/45"> — Sr. Global Demand Manager</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Salimeh's crucial role in redesigning our website navigation showcased her
+          attention to detail and user-centric approach, leading to improved engagement.
+          Her user journey map highlighted key areas for improvement in our conversion funnel.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Lauren Ashmore</span>
+          <span class="text-ink/45"> — Product Owner</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Salimeh excelled in optimizing our website through A/B testing, demonstrating
+          a keen understanding of user interactions. Her data-driven approach led to
+          measurable improvements in engagement and satisfaction.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Andrew Chambers</span>
+          <span class="text-ink/45"> — Global Marketing Strategist</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Salimeh was a pleasure to work with. She did content curation, analysis, and
+          social media copywriting for our company. She's consistently up to date on
+          marketing trends.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Sarah Guidas</span>
+          <span class="text-ink/45"> — Head of Sales</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Collaborating with Salimeh during our company Hackathon was a pleasure. By
+          taking on a product manager role and orchestrating our team's presentation,
+          she led us to deliver an impressive project — resulting in our "Spirit of
+          the Hackathon" award win.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Tobia Gasparoni</span>
+          <span class="text-ink/45"> — Software Engineer</span>
+        </figcaption>
+      </figure>
+
+      <figure class="break-inside-avoid mb-6 rounded-2xl border border-black/[0.08] bg-white/70 p-6">
+        <span class="font-serif text-3xl text-violet/40 leading-none">“</span>
+        <blockquote class="mt-2 text-[14px] leading-relaxed text-ink/75">
+          Salimeh assisted me in understanding user behavior on multiple paid media
+          landing pages. Her insights led to significant optimization improvements —
+          a standout project was her user research for the Singapore audience.
+        </blockquote>
+        <figcaption class="mt-4 text-[13px]">
+          <span class="font-semibold">Tom Pham</span>
+          <span class="text-ink/45"> — Performance Marketing</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/55 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/40 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UI Redesign of Product Pages — Achievers | Salimeh Miller</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F7F4EF; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+  .browser-frame {
+    box-shadow: 0 20px 40px -20px rgba(23,20,15,0.25);
+  }
+  .num-badge {
+    font-variant-numeric: tabular-nums;
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/70">
+        <a href="index.html#work" class="px-4 py-2 rounded-full bg-black/5 text-ink">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ BACK LINK ============ -->
+  <div class="max-w-6xl mx-auto px-6 pt-8">
+    <a href="index.html#work" class="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-widest text-ink/45 hover:text-violet transition">
+      <svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M9 5H1M1 5L4.5 1.5M1 5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All work
+    </a>
+  </div>
+
+  <!-- ============ CASE STUDY HEADER ============ -->
+  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/45 mb-4">Case Study 01 — Achievers</p>
+    <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
+      Redesigning product page UI to build trust
+    </h1>
+    <p class="mt-7 max-w-2xl text-[15px] sm:text-lg leading-relaxed text-ink/70">
+      I re-designed 5 consistent product pages to build trust. Results were a
+      <span class="text-violet font-semibold">20% increase in qualified leads.</span>
+    </p>
+    <p class="mt-5 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-ink/55">
+      The business wanted to increase qualified leads through direct website traffic. However,
+      there was no consistency in the way they communicated their product offerings on their website.
+    </p>
+    <p class="mt-4 max-w-2xl text-[13px] leading-relaxed text-ink/40 italic">
+      * Achievers is an employee engagement software that helps companies improve employee
+      satisfaction, resulting in higher productivity and retention.
+    </p>
+
+    <!-- Meta grid -->
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-5 gap-8 border-t border-black/[0.07] pt-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Role</p>
+        <p class="text-sm font-medium">CRO UX/UI Designer</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Year</p>
+        <p class="text-sm font-medium">2023</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Duration</p>
+        <p class="text-sm font-medium">3 months</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Team</p>
+        <p class="text-sm font-medium leading-relaxed">UX/UI Designer (me), 3 Engineers, Product Owner, Product Manager, Copywriter</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-2">Deliverables</p>
+        <p class="text-sm font-medium leading-relaxed">Heuristic eval, competitive research, data analysis, user research, journey map, mockups, prototypes, hi-fi design, user testing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL PRODUCT ============ -->
+  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Here are the 5 consistent product pages built to earn trust.</h2>
+
+    <div class="browser-frame rounded-xl overflow-hidden border border-black/10 bg-white">
+      <div class="flex items-center gap-1.5 px-3 py-2 bg-fog border-b border-black/5">
+        <span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span><span class="w-2 h-2 rounded-full bg-black/15"></span>
+      </div>
+      <img src="images/case-study-1/hero-final-product.png" class="w-full h-auto" alt="The 5 redesigned Achievers product pages" />
+    </div>
+  </section>
+
+  <!-- ============ HEURISTIC EVALUATION ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Discovery</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
+        To understand the current state, I ran a UX audit and conducted a heuristic evaluation of the website.
+      </h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-8">
+        I needed to uncover the root cause of this underperformance. The biggest red flag was the
+        violation of the "Consistency &amp; Standards" principle.
+      </p>
+
+      <div class="max-w-2xl rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-5 mb-10">
+        <p class="text-sm font-semibold text-red-600">⚠ Violating the Consistency &amp; Standards principle</p>
+      </div>
+
+      <div class="max-w-2xl">
+        <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Here's what I learned</p>
+        <p class="text-[15px] leading-relaxed text-ink/70">
+          While Achievers offered <strong>5 products</strong>, they only had <strong>2 product pages</strong> to
+          communicate their offerings. The other 3 products led the user to a form landing page, instructing
+          them to connect with sales to learn more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONSTRAINTS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reality check</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 constraints I identified with my team</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-12">
+      From the start we knew that changes had to roll out in phases considering technical limitations.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">01</p>
+        <p class="text-sm font-medium">3 month timeline</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">02</p>
+        <p class="text-sm font-medium">Limited dev time and resources</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="font-serif text-3xl text-violet mb-3 num-badge">03</p>
+        <p class="text-sm font-medium">Any animation or complex interactions would be implemented in future sprints</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HYPOTHESIS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Direction</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-12 max-w-2xl">Hypothesis &amp; success metrics we set</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="rounded-2xl card-glow grain relative overflow-hidden p-8">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-white/40 mb-4">Hypothesis</p>
+          <p class="font-serif text-xl sm:text-2xl text-white leading-snug">
+            By clarifying our products and their benefits, we will reduce ambiguity and increase trust.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-fog p-8">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-ink/40 mb-4">Success metrics / goals</p>
+          <ul class="space-y-3">
+            <li class="flex items-baseline gap-3">
+              <span class="font-serif text-2xl text-violet">30%</span>
+              <span class="text-sm text-ink/70">higher engagement with product pages</span>
+            </li>
+            <li class="flex items-baseline gap-3">
+              <span class="font-serif text-2xl text-violet">15%</span>
+              <span class="text-sm text-ink/70">increase in qualified leads</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITIES & OUTPUTS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Process</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-12">Activities &amp; outputs</h2>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-4">Research</p>
+        <ul class="space-y-2 text-sm text-ink/60 leading-relaxed">
+          <li>Website audit discoveries</li>
+          <li>Competitive research</li>
+          <li>User research</li>
+          <li>Jobs-to-be-done applied</li>
+          <li>Pain points across the user journey</li>
+          <li>Internal product research</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-4">Idea evaluation</p>
+        <ul class="space-y-2 text-sm text-ink/60 leading-relaxed">
+          <li>Exploring ideas</li>
+          <li>Checkpoints with devs</li>
+          <li>Ideation &amp; evaluation</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-4">Implementation</p>
+        <ul class="space-y-2 text-sm text-ink/60 leading-relaxed">
+          <li>Collab with PM, dev, copy</li>
+          <li>Implementation plan</li>
+          <li>Hypothesis / success metrics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECT TIMELINE ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Birds-eye view</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Project timeline</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I created a source of truth in Figma to communicate my process with multiple stakeholders.
+      </p>
+      <img src="images/case-study-1/project-timeline.png" class="rounded-xl border border-black/10 w-full h-auto" alt="Project timeline" />
+    </div>
+  </section>
+
+  <!-- ============ COMPETITIVE ANALYSIS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Competitive research</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">6 must-haves from my competitive analysis</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      To bring impactful change to our product pages, I researched what our top three competitors —
+      O.C. Tanner, Reward Gateway and Work Human — were effectively implementing.
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Value prop</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Function</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Why it matters</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Impact</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Analytics</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] px-5 py-6 text-center">
+        <p class="text-sm font-semibold">Integration</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USER RESEARCH INSIGHTS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Voice of the user</p>
+        <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
+          I discovered <span class="text-violet">2 key insights</span> from user research
+        </h2>
+        <div class="space-y-6">
+          <div class="rounded-2xl border border-black/[0.08] p-6">
+            <p class="text-sm leading-relaxed text-ink/70">
+              A need for transparency and comprehensive information upfront, enabling users to
+              make informed decisions before engaging further with the platform.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-black/[0.08] p-6">
+            <p class="text-sm leading-relaxed text-ink/70">
+              They look for user-friendly platforms to ensure quick onboarding and an enjoyable
+              experience for their employees that encourages usage.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
+        <div class="absolute inset-0 grain opacity-40"></div>
+        <div class="relative">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">Interviews conducted with</p>
+          <div class="space-y-5">
+            <div>
+              <p class="font-serif text-3xl">10</p>
+              <p class="text-[13px] text-cream/55">HR leaders</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl">1</p>
+              <p class="text-[13px] text-cream/55">VP of Finance</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl">2</p>
+              <p class="text-[13px] text-cream/55">IT Managers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAIN POINTS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Journey mapping</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 pain points I identified across the user journey</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      I created a user journey map. Then, through testing and user interviews, I identified gaps
+      in the customer journey that aligned with our focus.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-6 mb-12">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">Product look, feel &amp; benefits were unclear.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">Differentiating factors were missing.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-medium text-ink/80">Analytics and how they showed results were not communicated properly.</p>
+      </div>
+    </div>
+    <img src="images/case-study-1/user-journey-map.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="User journey map artifact" />
+  </section>
+
+  <!-- ============ IDEATION ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Problem statement → ideation</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Reflecting on all my research, it was time to define the problem statement</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+        I went over solutions I'd come up with using the Crazy 8s method for ideation, evaluated
+        them with my PM and devs, then narrowed them down to 3 based on effort vs. impact.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <img src="images/case-study-1/crazy-8s-ideation.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Crazy 8s ideation sketches" />
+        <img src="images/case-study-1/top-3-ideas.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Top 3 ideas shortlist" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPLEMENTATION PLAN ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">And now… implementation</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Mapping the required sections for each product</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      I sat with my PM and mapped out all the required sections for each product in Miro, then
+      built lo-fi wireframes inside Figma.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-6 mb-14">
+      <img src="images/case-study-1/miro-requirement-map.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Product requirement map in Miro" />
+      <img src="images/case-study-1/lofi-wireframes.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Lo-fi wireframes in Figma" />
+    </div>
+
+    <div class="rounded-2xl border border-black/[0.08] p-8">
+      <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">When stakeholders push back, transparency clears the air</p>
+      <p class="text-[15px] leading-relaxed text-ink/70">
+        Several stakeholders resisted the multi-department input process, concerned it would slow
+        down our product launch. I addressed their worries by presenting key insights from our
+        Sales and Product leaders that demonstrated why taking time for thoughtful design was
+        essential — this is how I gained approval and created alignment across departments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FINAL DESIGN SYSTEM & PRODUCT ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Bringing it to life</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">I used our style guide and design system to prototype</h2>
+      <img src="images/case-study-1/style-guide.png" class="rounded-2xl border border-black/10 w-full h-auto mb-14" alt="Achievers style guide and design system" />
+
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Final product</p>
+      <h3 class="font-serif text-xl sm:text-2xl tracking-tight mb-8 max-w-2xl">Here's the redesign of all product pages, keeping consistency in mind</h3>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <img src="images/case-study-1/final-desktop.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Final 5 product pages redesigned — desktop" />
+          <p class="mt-3 text-sm text-center text-ink/55">Desktop</p>
+        </div>
+        <div>
+          <img src="images/case-study-1/final-mobile.png" class="rounded-2xl border border-black/10 w-full h-auto" alt="Final 5 product pages redesigned — mobile" />
+          <p class="mt-3 text-sm text-center text-ink/55">Mobile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USABILITY TESTING ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Validation</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Eye-opening discoveries from usability testing after launch</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-10">
+      I conducted usability testing with 7 users and shared the results with my team. I then
+      collaborated with my PM and developers to plan and implement targeted improvements.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-3">User feedback from testing</p>
+        <p class="text-sm leading-relaxed text-ink/65">
+          Testers responded well to the clarified value props but flagged a few areas —
+          particularly around where analytics and proof points sat on the page.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold mb-3">Iterations applied after feedback</p>
+        <ul class="space-y-2 text-sm text-ink/65 leading-relaxed list-disc list-inside">
+          <li>Repositioned analytics proof points higher on the page</li>
+          <li>Clarified CTA hierarchy across all 5 pages</li>
+          <li>Tightened copy for scannability</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT & RESULTS ============ -->
+  <section class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-6">Impact &amp; results</p>
+      <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
+        Our sales department reported a<br class="hidden sm:block" />
+        <span class="text-violet">20% increase</span> in qualified leads
+      </p>
+      <p class="mt-6 text-sm text-ink/50 font-mono uppercase tracking-widest">in the following 3 months</p>
+    </div>
+  </section>
+
+  <!-- ============ FINAL THOUGHTS ============ -->
+  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Reflection</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Final thoughts</h2>
+    <div class="space-y-6 max-w-3xl">
+      <p class="text-[15px] leading-relaxed text-ink/70 border-l-2 border-violet/40 pl-6">
+        Our audience needed more reassurance before deciding to connect with us — once we
+        addressed their doubts clearly, they were eager to speak with our representatives.
+      </p>
+      <p class="text-[15px] leading-relaxed text-ink/70 border-l-2 border-violet/40 pl-6">
+        Cross-functional collaboration and our unified goal of "designing to raise trust and
+        increase qualified leads" helped us overcome disagreements and competing priorities.
+      </p>
+      <p class="text-[15px] leading-relaxed text-ink/70 border-l-2 border-violet/40 pl-6">
+        The Trifecta model provided invaluable insights and saved us time in eliminating design
+        solutions that didn't fit our constraints.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORK ============ -->
+  <section class="border-t border-black/[0.07] dashed-x bg-fog/60">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-10">Check out what else I've worked on</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="case-study-2.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Collaboration Feature</p>
+          <p class="text-sm text-violet font-medium">25% higher product engagement</p>
+        </a>
+        <a href="case-study-3.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Form Landing Page</p>
+          <p class="text-sm text-violet font-medium">80% higher user completion rate</p>
+        </a>
+        <a href="case-study-4.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Points Loyalty App</p>
+          <p class="text-sm text-violet font-medium">85% Customer Satisfaction Score</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/55 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/40 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
