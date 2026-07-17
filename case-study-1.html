@@ -140,26 +140,37 @@
   <!-- ============ HEURISTIC EVALUATION ============ -->
   <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
     <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Discovery</p>
-      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
-        To understand the current state, I ran a UX audit and conducted a heuristic evaluation of the website.
-      </h2>
-      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/65 mb-8">
-        I needed to uncover the root cause of this underperformance. The biggest red flag was the
-        violation of the "Consistency &amp; Standards" principle.
-      </p>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/45 mb-3">Discovery</p>
+          <h2 class="font-serif text-2xl sm:text-3xl tracking-tight leading-snug mb-8">
+            To understand the current state, I ran a UX audit and conducted a heuristic evaluation of the website.
+          </h2>
+          <p class="text-[15px] leading-relaxed text-ink/65 mb-8">
+            I needed to uncover the root cause of this underperformance. The biggest red flag was the
+            violation of the "Consistency &amp; Standards" principle.
+          </p>
 
-      <div class="max-w-2xl rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-5 mb-10">
-        <p class="text-sm font-semibold text-red-600">⚠ Violating the Consistency &amp; Standards principle</p>
-      </div>
+          <div>
+            <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Here's what I learned</p>
+            <p class="text-[15px] leading-relaxed text-ink/70">
+              While Achievers offered <strong>5 products</strong>, they only had <strong>2 product pages</strong> to
+              communicate their offerings. The other 3 products led the user to a form landing page, instructing
+              them to connect with sales to learn more.
+            </p>
+          </div>
+        </div>
 
-      <div class="max-w-2xl">
-        <p class="text-[13px] font-mono uppercase tracking-widest text-ink/45 mb-3">Here's what I learned</p>
-        <p class="text-[15px] leading-relaxed text-ink/70">
-          While Achievers offered <strong>5 products</strong>, they only had <strong>2 product pages</strong> to
-          communicate their offerings. The other 3 products led the user to a form landing page, instructing
-          them to connect with sales to learn more.
-        </p>
+        <div>
+          <div class="rounded-2xl border border-red-500/20 bg-red-500/5 px-6 py-5 mb-6">
+            <p class="text-sm font-semibold text-red-600">⚠ Violating the Consistency &amp; Standards principle</p>
+          </div>
+          <img
+            src="images/case-study-1/o8eQuMHjtKQuHG9jCRB5DKa9rDo.png"
+            alt="Comparison of Achievers' current live product pages for Recognize and Reward versus the unclear product offering spread across one page for Celebrate, Listen, and Connect"
+            class="w-full h-auto rounded-2xl border border-black/10 cursor-zoom-in lightbox-trigger"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -531,6 +542,34 @@
       </div>
     </div>
   </footer>
+
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/90 p-6 cursor-zoom-out">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full rounded-lg" />
+  </div>
+  <script>
+    (function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.lightbox-trigger').forEach(function (img) {
+        img.addEventListener('click', function () {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+        });
+      });
+      lightbox.addEventListener('click', function () {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          lightbox.classList.add('hidden');
+          lightbox.classList.remove('flex');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
