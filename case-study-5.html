@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Building Prompt Kit: A Design System for AI-Driven Design — Alpha CDM | Salimeh Miller</title>
+<meta name="description" content="How an AI-readable Figma design system cut landing page design and revision time from 2 weeks to 2–4 days at Alpha CDM." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          'violet-deep': '#3F2E93',
+          'red-deep': '#7A1518',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+  .num-badge { font-variant-numeric: tabular-nums; }
+  /* Visible keyboard focus everywhere, for WCAG 2.4.7 / 2.4.11 */
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #3F2E93;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .skip-link {
+    position: absolute; left: 1rem; top: -3rem;
+    background: #17140F; color: #F7F4EF;
+    padding: 0.75rem 1.25rem; border-radius: 9999px;
+    font-size: 13px; font-weight: 500; z-index: 100;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <a href="#case-study-main" class="skip-link">Skip to main content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/75" aria-label="Primary">
+        <a href="index.html#work" class="px-4 py-2 rounded-full bg-black/5 text-ink">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ BACK LINK ============ -->
+  <div class="max-w-6xl mx-auto px-6 pt-8">
+    <a href="index.html#work" class="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-widest text-ink hover:text-violet-deep transition">
+      <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M9 5H1M1 5L4.5 1.5M1 5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All work
+    </a>
+  </div>
+
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
+  <!-- ============ CASE STUDY HEADER ============ -->
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink mb-4">Case Study 05 — Alpha CDM</p>
+    <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
+      Building Prompt Kit: a design system for AI-driven design
+    </h1>
+    <p class="mt-7 max-w-2xl text-[15px] sm:text-lg leading-relaxed text-ink/80">
+      Reduced landing page design and revision time from 2 weeks to 2–4 days, an
+      <span class="text-violet-deep font-semibold">~85% reduction,</span>
+      by building an AI-readable design system that let Claude Code generate on-brand, production-ready Figma files.
+    </p>
+    <p class="mt-5 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-ink/80">
+      Prompt Kit lives in a single Figma file, organized into Foundations and Components, built from day one
+      with naming and structure an AI agent could reliably read and reuse.
+    </p>
+
+    <!-- Meta grid -->
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-black/[0.07] pt-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Role</p>
+        <p class="text-sm font-medium">Sr. UX/UI Designer</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Year</p>
+        <p class="text-sm font-medium">2026</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Duration</p>
+        <p class="text-sm font-medium leading-relaxed">Design system MVP built in 2–3 weeks</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Deliverables</p>
+        <p class="text-sm font-medium leading-relaxed">Design system architecture, component library (Foundations + Components), AI-readability standards, naming conventions, design-to-agent handoff documentation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW PROMPT KIT IS STRUCTURED ============ -->
+  <section id="structure" data-chapter="System Structure" class="border-t border-b border-black/[0.07] dashed-x" style="background-color: #FFFFFF;">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">How Prompt Kit is structured</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight leading-snug mb-8 max-w-2xl">Inside the system</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Prompt Kit lives in a single Figma file, organized into Foundations and Components pages, with a reserved
+        Documentation section for future usage guidelines. I originally split these into three separate files, but
+        quickly learned that consolidating into one made the system much easier to maintain and far more reliable
+        for AI agents to reference consistently.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        <strong class="font-semibold text-ink">Foundations</strong> — primitive colour tokens (33 variables across
+        9 semantic groups), typography variables, spacing, and radius tokens. This is the source of truth every
+        component pulls from.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-12">
+        <strong class="font-semibold text-ink">Components</strong> — started as a mapped set of 8 core components,
+        and grew to around 80 as new patterns, verticals, and edge cases demanded it. Each one is built with
+        AI-readable naming (PascalCase components, semantic variants like <code class="font-mono text-[13px] bg-black/5 px-1.5 py-0.5 rounded">State=focused</code> instead of something like <code class="font-mono text-[13px] bg-black/5 px-1.5 py-0.5 rounded">Variant2</code>).
+      </p>
+
+      <!-- Diagram: file structure -->
+      <div class="rounded-2xl border border-black/[0.08] bg-fog/40 p-6 sm:p-8">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-5">Prompt Kit — one Figma file</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="rounded-xl border border-emerald-800/20 bg-emerald-50 p-5">
+            <p class="text-sm font-semibold text-ink mb-1">Foundations</p>
+            <p class="text-[13px] text-ink/80">Colour, type, spacing, radius tokens</p>
+          </div>
+          <div class="rounded-xl border border-violet-deep/25 bg-violet/[0.06] p-5">
+            <p class="text-sm font-semibold text-ink mb-1">Components</p>
+            <p class="text-[13px] text-ink/80">Grew from 8 to ~80</p>
+          </div>
+          <div class="rounded-xl border border-black/[0.08] bg-white p-5">
+            <p class="text-sm font-semibold text-ink mb-1">Documentation</p>
+            <p class="text-[13px] text-ink/80">Reserved for later</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 mt-6 mb-6 max-w-md">
+          <span class="text-[11px] font-mono uppercase tracking-widest text-ink/85 whitespace-nowrap">Considered, then cut</span>
+          <span class="h-px flex-1 bg-black/10" aria-hidden="true"></span>
+        </div>
+        <div class="rounded-xl border border-dashed border-black/20 bg-black/[0.02] p-5 max-w-sm">
+          <p class="text-sm font-semibold text-ink/85 mb-1">Templates</p>
+          <p class="text-[13px] text-ink/85">Planned, then abandoned — static pages couldn't keep up with how often needs shifted by brand and vertical</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DISCOVERY ============ -->
+  <section id="discovery" data-chapter="Discovery" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Discovery</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">The realization that started it all</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-8">
+      Towards the end of April, I tested a handful of AI design tools — Lovable, Magic Path, and Figma Make — to
+      see if we could rebuild our landing pages by prompting instead of designing by hand. The results were
+      inconsistent. Without a real design system to reference, these tools defaulted to their own generic pattern
+      libraries instead of matching our brand.
+    </p>
+    <div class="max-w-2xl border-l-2 border-violet-deep/50 pl-6">
+      <p class="font-serif text-lg sm:text-xl leading-snug text-ink">
+        That was the moment it clicked: if we wanted AI to design for us, it needed something structured to design
+        from. Prompting alone wasn't going to get us there.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ REALITY CHECK ============ -->
+  <section id="reality-check" data-chapter="Reality Check" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Reality Check</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-12 max-w-2xl">3 constraints I ran into building the system</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet-deep mb-3 num-badge">01</p>
+          <p class="text-sm font-semibold text-ink mb-2">Figma's variable bugs</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Text styles silently disconnected from their linked variables, so the numbers shown didn't always reflect what was actually applied.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet-deep mb-3 num-badge">02</p>
+          <p class="text-sm font-semibold text-ink mb-2">Mobile vs. desktop typography</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Figma applied mobile type styles inconsistently across breakpoints, forcing a full redesign of how type was structured.</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="font-serif text-3xl text-violet-deep mb-3 num-badge">03</p>
+          <p class="text-sm font-semibold text-ink mb-2">Speed vs. architecture</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Building fully tokenized components from scratch was the right long-term call, but it was slow — every component surfaced a new Figma quirk to debug.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section id="method" data-chapter="Method" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Method</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">How I actually documented decisions</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+      Originally, I thought Prompt Kit needed a dedicated Documentation section. But as I built each part of the
+      system, I found myself recording decisions with screenshots and notes directly inside the same Figma file,
+      right next to the component or token it explained.
+    </p>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      That turned out to be the better approach. The reasoning lived exactly where anyone would naturally land —
+      attached to the decision itself, instead of in a separate reference someone had to go find.
+    </p>
+  </section>
+
+  <!-- ============ DIRECTION ============ -->
+  <section id="direction" data-chapter="Direction" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Direction</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">The build decision: bottom-up, top-down, or hybrid</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        Rather than default to one approach, I weighed three ways to build the system.
+      </p>
+
+      <ul class="space-y-4 max-w-2xl mb-12">
+        <li class="rounded-2xl border border-black/[0.08] p-5">
+          <p class="text-sm font-semibold text-ink mb-1">Bottom-up</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Build every token and component from scratch, fully architected from day one. Slower, but nothing inherited hidden problems.</p>
+        </li>
+        <li class="rounded-2xl border border-black/[0.08] p-5">
+          <p class="text-sm font-semibold text-ink mb-1">Top-down</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Take our existing Unbounce-derived Figma designs and componentize what already worked. Fast, but risked baking in hardcoded values and inconsistent structure.</p>
+        </li>
+        <li class="rounded-2xl border-2 border-violet-deep/40 bg-violet/[0.05] p-5">
+          <p class="text-sm font-semibold text-ink mb-1">Hybrid — chosen</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Rebuild the components where architecture mattered most, and reuse existing assets where the visual was already right.</p>
+        </li>
+      </ul>
+
+      <!-- Diagram -->
+      <div class="rounded-2xl border border-black/[0.08] bg-fog/40 p-6 sm:p-8 mb-12" role="img" aria-label="Bottom-up and top-down approaches both feed into the hybrid approach, which was chosen.">
+        <div class="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+          <div class="rounded-xl border border-black/[0.1] bg-white p-4 text-center">
+            <p class="text-sm font-semibold text-ink">Bottom-up</p>
+            <p class="text-[12px] text-ink/85 mt-1">Slow, fully architected</p>
+          </div>
+          <div class="rounded-xl border border-black/[0.1] bg-white p-4 text-center">
+            <p class="text-sm font-semibold text-ink">Top-down</p>
+            <p class="text-[12px] text-ink/85 mt-1">Fast, risks hardcoding</p>
+          </div>
+        </div>
+        <div class="flex justify-center my-3" aria-hidden="true">
+          <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M8 1V17M8 17L2 11M8 17L14 11" stroke="#3F2E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="max-w-xs mx-auto rounded-xl border-2 border-violet-deep bg-violet-deep/[0.08] p-4 text-center">
+          <p class="text-sm font-semibold text-ink">Hybrid, chosen</p>
+          <p class="text-[12px] text-ink/85 mt-1">Rebuild atoms, reuse visuals</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl card-glow grain relative overflow-hidden p-8 max-w-2xl">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-white/90 mb-4">The test that mattered</p>
+        <p class="font-serif text-xl sm:text-2xl text-white leading-snug">
+          AI agents don't care how a system was built, they care whether it's consistent. So the real question
+          wasn't which approach was "more correct," it was which one produced tokens, naming, and component
+          architecture an AI agent could actually rely on.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITIES & OUTPUTS ============ -->
+  <section id="process" data-chapter="Activities &amp; Outputs" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Activities &amp; Outputs</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">What actually got built</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-12">
+      By the end of the first sprint, Prompt Kit had grown from an idea into a working, documented system.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6 mb-12">
+      <div class="rounded-2xl border border-emerald-800/20 bg-emerald-50 p-6">
+        <p class="text-sm font-semibold text-ink mb-5">Foundations</p>
+        <div class="grid grid-cols-2 gap-5">
+          <div><p class="font-serif text-2xl text-ink num-badge">33</p><p class="text-[13px] text-ink/80">colour primitives</p></div>
+          <div><p class="font-serif text-2xl text-ink num-badge">9</p><p class="text-[13px] text-ink/80">semantic groups</p></div>
+          <div><p class="font-serif text-2xl text-ink num-badge">25</p><p class="text-[13px] text-ink/80">typography variables</p></div>
+          <div><p class="font-serif text-2xl text-ink num-badge">8</p><p class="text-[13px] text-ink/80">spacing tokens</p></div>
+          <div><p class="font-serif text-2xl text-ink num-badge">5</p><p class="text-[13px] text-ink/80">radius tokens</p></div>
+          <div><p class="font-serif text-2xl text-ink num-badge">6</p><p class="text-[13px] text-ink/80">effect styles</p></div>
+        </div>
+        <p class="mt-5 text-[13px] text-ink/80"><span class="font-serif text-lg text-ink num-badge">10</span> published text styles</p>
+      </div>
+      <div class="rounded-2xl border border-violet-deep/25 bg-violet/[0.06] p-6">
+        <p class="text-sm font-semibold text-ink mb-5">Components</p>
+        <div class="flex items-center gap-5">
+          <div>
+            <p class="font-serif text-4xl text-ink num-badge">8</p>
+            <p class="text-[13px] text-ink/80">to start</p>
+          </div>
+          <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M1 7H26M26 7L20 1M26 7L20 13" stroke="#3F2E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <p class="font-serif text-4xl text-ink num-badge">~80</p>
+            <p class="text-[13px] text-ink/80">by day 21</p>
+          </div>
+        </div>
+        <p class="mt-5 text-[13px] text-ink/80 leading-relaxed">Built with AI-readable naming conventions from day one — PascalCase components, semantic variant names.</p>
+      </div>
+    </div>
+
+    <p class="text-[13px] font-mono uppercase tracking-widest text-ink mb-3">Key architectural decisions</p>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm text-ink/80 leading-relaxed">Chose a lean system over an exhaustive one — only building what had a real use case.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm text-ink/80 leading-relaxed">Standardized variant properties (Size, Type, State) across every component.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm text-ink/80 leading-relaxed">Built in Auto Layout discipline throughout — critical for AI agents to resize and rearrange components reliably.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A LIVING SYSTEM ============ -->
+  <section id="living-system" data-chapter="A Living System" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">A Living System</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">The system kept growing, on purpose</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Prompt Kit was never meant to be finished on day one. Every new landing page surfaced needs the original
+        8 components didn't cover — a new brand's visual treatment, a vertical-specific layout, a fresh way to
+        showcase a section. Rather than force those needs into existing components, I added new ones.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+        By day 21, that process had grown the library from 8 components to roughly 80.
+        <strong class="font-semibold text-ink">The growth wasn't scope creep — it was the system doing exactly
+        what it was designed to do: absorb real production demands and get more capable with every page built,</strong>
+        instead of staying a fixed, one-time deliverable.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ LESSON LEARNED ============ -->
+  <section id="lessons" data-chapter="Lessons Learned" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Lesson Learned</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Size components by their content, not a fixed frame</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-14">
+      Instead of forcing components into fixed dimensions, I sized them by their content and padding tokens.
+      <strong class="font-semibold text-ink">A button that sizes itself around its own padding stays consistent
+      no matter where it's dropped,</strong> while a button forced into a fixed size breaks the moment its content
+      changes. This one decision is what let dozens of landing pages share the same components without constant
+      one-off adjustments.
+    </p>
+
+    <h3 class="font-serif text-xl sm:text-2xl tracking-tight mb-4 max-w-2xl">The mistake I caught late</h3>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+      Early on, I let Figma's default convention handle responsiveness — one typography style per type, with
+      Figma automatically swapping in a predetermined mobile size whenever a mobile frame was used. It seemed
+      efficient, but it meant I never had direct control over how each style behaved across breakpoints.
+    </p>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      The fix was to stop relying on that automatic swap. I built two separate typography variables for every
+      style — one for desktop and one for mobile — and named them distinctly so there was no ambiguity about
+      which was which. It took more upfront setup, but it meant every type style behaved exactly as intended on
+      every screen, instead of hoping Figma's default logic got it right.
+    </p>
+  </section>
+
+  <!-- ============ UNEXPECTED SHIFT ============ -->
+  <section id="architecture-decision" data-chapter="Unexpected Shift" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Unexpected Shift</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">When a layout fix becomes an architecture decision</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        Matching the original 304px mobile header exactly caused my tokenized button to overflow its space. The
+        real problem wasn't the button — it was that I hadn't decided how viewport width and content width should
+        relate to each other.
+      </p>
+
+      <!-- Diagram: outer/inner frame -->
+      <div class="rounded-2xl border border-black/[0.08] bg-fog/40 p-8 mb-10 flex justify-center" role="img" aria-label="A 390px outer viewport frame contains a 304px inner content frame holding the logo and button.">
+        <div class="rounded-2xl border-2 border-dashed border-black/20 bg-white p-6 w-full max-w-sm">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-4 text-center">Outer frame — 390px viewport</p>
+          <div class="rounded-xl border-2 border-violet-deep bg-violet-deep/[0.08] p-5 mx-auto max-w-[260px]">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-1 text-center">Inner frame — 304px</p>
+            <p class="text-[12px] text-ink/85 text-center">Content, logo and button</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        The fix was a simple pattern: a 390px outer frame holding a 304px inner frame for the logo and button.
+        Separating viewport size from content size solved the overflow, and the same pattern became reusable for
+        the Hero section too.
+      </p>
+      <div class="max-w-2xl border-l-2 border-violet-deep/50 pl-6">
+        <p class="font-serif text-lg sm:text-xl leading-snug text-ink">
+          What felt like a small layout fix was actually a system decision I hadn't made yet, and making it
+          properly is what kept the system AI-readable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PIVOT ============ -->
+  <section id="pivot" data-chapter="The Pivot" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">The Pivot</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">A platform shift I didn't see coming</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+      Midway through the sprint, Google feedback led the company to a discovery: search pages built on WordPress
+      tended to rank better than those built on Unbounce. That meant a real shift — search landing pages would now
+      be built on WordPress by an outside agency, not Unbounce as originally planned.
+    </p>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      That put a real decision in front of me. Did Prompt Kit need to change to be WordPress-friendly, or did I
+      need an entirely separate design system for a separate platform?
+      <strong class="font-semibold text-ink">Getting this wrong meant either a system that only worked for half
+      our pages, or duplicate work maintaining two systems in parallel.</strong>
+    </p>
+  </section>
+
+  <!-- ============ VALIDATION ============ -->
+  <section id="validation" data-chapter="Validation" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Validation</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Someone else builds it the same way</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        I met with our agency's lead developer, who was handling the new WordPress builds, to work through exactly
+        that question. Without prompting, he described their own approach to design systems, and it matched
+        Prompt Kit's structure almost exactly. The only addition he asked for in the handoff was clearly defined
+        design tokens for each landing page — something Prompt Kit was already built to provide.
+      </p>
+
+      <!-- Diagram -->
+      <div class="rounded-2xl border border-black/[0.08] bg-fog/40 p-6 sm:p-8 mb-10" role="img" aria-label="Prompt Kit's shared design tokens branch into two platforms: Unbounce for social landing pages, and the newly pivoted WordPress for search landing pages.">
+        <div class="max-w-xs mx-auto rounded-xl border-2 border-violet-deep bg-violet-deep/[0.08] p-4 text-center mb-3">
+          <p class="text-sm font-semibold text-ink">Prompt Kit</p>
+          <p class="text-[12px] text-ink/85 mt-1">Shared design tokens</p>
+        </div>
+        <div class="flex justify-center mb-3" aria-hidden="true">
+          <svg width="120" height="24" viewBox="0 0 120 24" fill="none"><path d="M60 1V10M60 10C60 10 20 10 20 10C20 10 20 10 20 18M60 10C60 10 100 10 100 10C100 10 100 10 100 18" stroke="#3F2E93" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+          <div class="rounded-xl border border-black/[0.1] bg-white p-4 text-center">
+            <p class="text-sm font-semibold text-ink">Unbounce</p>
+            <p class="text-[12px] text-ink/85 mt-1">Social landing pages</p>
+          </div>
+          <div class="rounded-xl border border-black/[0.1] bg-white p-4 text-center">
+            <p class="text-sm font-semibold text-ink">WordPress</p>
+            <p class="text-[12px] text-ink/85 mt-1">Search landing pages — the pivot</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+        That resolved the dilemma. Prompt Kit didn't need to be rebuilt or split in two — it needed to travel with
+        clearly defined tokens, which is exactly the discipline it was built around from day one. Unprompted
+        agreement from a team with no reason to flatter the work is hard to manufacture, and it confirmed the
+        system's architecture held up outside the tool it was designed for.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT & RESULTS ============ -->
+  <section id="impact-results" data-chapter="Impact &amp; Results" class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-6">Impact &amp; Results</p>
+    <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
+      Landing page design time<br class="hidden sm:block" />
+      <span class="text-violet-deep">dropped ~85%</span>
+    </p>
+    <p class="mt-6 text-sm text-ink/80 font-mono uppercase tracking-widest">including revisions</p>
+
+    <div class="mt-14 rounded-2xl border border-black/10 bg-fog/40 p-8 sm:p-10 max-w-3xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-10">
+        <div class="relative w-40 h-40 shrink-0" role="img" aria-label="85 percent reduction in landing page design time">
+          <svg viewBox="0 0 160 160" width="160" height="160" aria-hidden="true">
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#EDE9E1" stroke-width="16" />
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#3F2E93" stroke-width="16"
+              stroke-linecap="round"
+              stroke-dasharray="427.26"
+              stroke-dashoffset="64.09"
+              transform="rotate(-90 80 80)" />
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <p class="font-serif text-3xl text-ink num-badge">85%</p>
+            <p class="text-[11px] text-ink/85">time saved</p>
+          </div>
+        </div>
+        <div class="flex gap-6 text-left">
+          <div class="rounded-xl bg-white border border-black/[0.08] px-5 py-4">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-1">Before</p>
+            <p class="font-serif text-2xl text-ink">~10 days</p>
+          </div>
+          <div class="rounded-xl bg-white border-2 border-violet-deep px-5 py-4">
+            <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-1">After</p>
+            <p class="font-serif text-2xl text-ink">2–4 days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REFLECTION ============ -->
+  <section id="reflection" data-chapter="Reflection" class="border-t border-t border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Reflection</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">What I'd carry into the next system</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Prompt Kit was actually one piece of a larger 75-day agentic design sprint led by our director of CRO,
+        aimed at designing faster, higher-quality, better-converting pages. Building the design system was the
+        foundation — step one of that plan — and by the time it was in active production use, the real work
+        shifted from building the system to using it: pairing it with AI agents to actually generate pages, which
+        became its own project entirely.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-12">
+        Before that shift, the remaining work on Prompt Kit itself was maintenance and discipline: unpublishing
+        legacy libraries that had been superseded, keeping a change log for major token and component updates,
+        and setting up a quarterly audit cadence so drift wouldn't quietly build back up over time.
+      </p>
+
+      <p class="text-[13px] font-mono uppercase tracking-widest text-ink mb-6">A few things I'd carry forward</p>
+      <div class="space-y-6 max-w-3xl">
+        <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+          <strong class="font-semibold text-ink">Build lean, not exhaustive.</strong> Starting with 8 components
+          instead of trying to anticipate every need meant the system grew in response to real demand, not
+          speculation.
+        </p>
+        <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+          <strong class="font-semibold text-ink">AI-readability and human-readability turned out to be the same
+          discipline.</strong> Clear naming, tokenized values, and consistent structure made the system easier for
+          people to use too, not just agents.
+        </p>
+        <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+          <strong class="font-semibold text-ink">A design system is a living product, not a one-time
+          deliverable.</strong> It needs the same ongoing care as anything else in production, which is exactly
+          what the post-sprint backlog reflected.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE WORK ============ -->
+  <section class="border-t border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-10">Check out what else I've worked on</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="case-study-1.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">UI Redesign of Product Pages</p>
+          <p class="text-sm text-violet-deep font-medium">20% increase in qualified leads</p>
+        </a>
+        <a href="case-study-2.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Collaboration Feature</p>
+          <p class="text-sm text-violet-deep font-medium">25% higher product engagement</p>
+        </a>
+        <a href="case-study-3.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Form Landing Page</p>
+          <p class="text-sm text-violet-deep font-medium">80% higher user completion rate</p>
+        </a>
+        <a href="case-study-4.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Points Loyalty App</p>
+          <p class="text-sm text-violet-deep font-medium">85% Customer Satisfaction Score</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    </main>
+  </div>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/70 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/70 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:hello@salimehmiller.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        hello@salimehmiller.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/70 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/chapter-nav.js"></script>
+
+</body>
+</html>

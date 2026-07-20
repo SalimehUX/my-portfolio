@@ -35,7 +35,7 @@
       btn.setAttribute('aria-current', 'false');
       btn.className =
         'block w-full text-left pl-6 pr-4 py-3.5 text-[11px] font-mono uppercase tracking-widest ' +
-        'border-l-2 border-transparent text-ink/45 hover:text-ink transition-colors ' +
+        'border-l-2 border-transparent text-ink/75 hover:text-ink transition-colors ' +
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet focus-visible:-outline-offset-2';
 
       btn.addEventListener('click', function () {
@@ -62,7 +62,7 @@
         e.btn.classList.toggle('text-ink', isActive);
         e.btn.classList.toggle('font-semibold', isActive);
         e.btn.classList.toggle('border-violet', isActive);
-        e.btn.classList.toggle('text-ink/45', !isActive);
+        e.btn.classList.toggle('text-ink/75', !isActive);
         e.btn.classList.toggle('border-transparent', !isActive);
       });
     }

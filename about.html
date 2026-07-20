@@ -28,8 +28,9 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #F7F4EF; }
-  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
+  .dashed-y { background-image: linear-gradient(to bottom, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 1px 8px; }
   .grain::before {
     content: '';
     position: absolute; inset: 0;
@@ -63,28 +64,20 @@
 
   <!-- ============ HERO ============ -->
   <section class="relative max-w-6xl mx-auto px-6 pt-20 pb-16 sm:pt-24 sm:pb-20">
-    <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start">
-      <div class="order-2 md:order-1">
-        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full grid place-items-center text-cream font-serif text-2xl sm:text-3xl shadow-lg"
-             style="background: conic-gradient(from 210deg, #6C4FF2, #A98BFF, #3A2A8C, #6C4FF2);">
-          SM
-        </div>
-      </div>
-      <div class="order-1 md:order-2">
-        <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Who am I, in 24 seconds</p>
-        <h1 class="font-serif leading-[1.06] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.6rem] max-w-3xl">
-          A Product &amp; Growth Designer who turns
-          <em class="italic font-normal text-violet">user insight</em> into
-          measurable outcomes.
-        </h1>
-        <p class="mt-7 max-w-xl text-[15px] sm:text-base leading-relaxed text-ink/75">
-          Based in Toronto, I work across research, UX/UI and growth to help B2B and
-          consumer teams understand their users and design for adoption — from
-          global SaaS platforms to scrappy freelance sprints. My work and personal
-          life share the same throughline: stay curious, stay close to the data,
-          and keep iterating.
-        </p>
-      </div>
+    <div class="max-w-3xl">
+      <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Who am I, in 24 seconds</p>
+      <h1 class="font-serif leading-[1.06] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.6rem] max-w-3xl">
+        A Product &amp; Growth Designer who turns
+        <em class="italic font-normal text-violet">user insight</em> into
+        measurable outcomes.
+      </h1>
+      <p class="mt-7 max-w-xl text-[15px] sm:text-base leading-relaxed text-ink/75">
+        Based in Toronto, I work across research, UX/UI and growth to help B2B and
+        consumer teams understand their users and design for adoption — from
+        global SaaS platforms to scrappy freelance sprints. My work and personal
+        life share the same throughline: stay curious, stay close to the data,
+        and keep iterating.
+      </p>
     </div>
   </section>
 
