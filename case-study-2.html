@@ -28,8 +28,8 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #F7F4EF; }
-  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
   .grain::before {
     content: '';
     position: absolute; inset: 0;
@@ -83,8 +83,12 @@
     </a>
   </div>
 
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
   <!-- ============ CASE STUDY HEADER ============ -->
-  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
     <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Case Study 02 — Aspire</p>
     <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
       Turning a recognition product into a collaborator finding tool
@@ -129,7 +133,7 @@
   </section>
 
   <!-- ============ FINAL PRODUCT ============ -->
-  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+  <section id="final-product" data-chapter="Final Product" class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">From Recognition to Collaboration</h2>
 
@@ -142,7 +146,7 @@
   </section>
 
   <!-- ============ THE PROBLEM ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="discovery" data-chapter="Discovery" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Discovery</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
@@ -156,17 +160,23 @@
 
       <div class="max-w-2xl">
         <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-        <div class="flex flex-wrap gap-3">
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">User interviews (10 users)</span>
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Current process mapping</span>
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Pain point analysis</span>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">User interviews (10 users)</p>
+          </div>
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">Current process mapping</p>
+          </div>
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">Pain point analysis</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ PROBLEM STATEMENT ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="framing" data-chapter="Framing" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Framing</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">
       Here's the problem statement I came up with using the 5Ws (Who, where, what, why, when)
@@ -181,7 +191,7 @@
   </section>
 
   <!-- ============ OPPORTUNITY ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="opportunity" data-chapter="Opportunity" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">The opportunity</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-6 max-w-2xl">
@@ -207,16 +217,16 @@
   </section>
 
   <!-- ============ USER QUOTE ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1fr_1.3fr] gap-10">
+  <section id="voice-of-the-user" data-chapter="Voice of the User" class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1fr_1.3fr] gap-10">
     <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
       <div class="absolute inset-0 grain opacity-40"></div>
       <div class="relative">
-        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">Insight from user interviews</p>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/60 mb-6">Insight from user interviews</p>
         <p class="font-serif text-xl sm:text-2xl leading-snug">
           "I need to find people with expertise for my new project, but I'm not sure how to find
           them."
         </p>
-        <p class="mt-6 text-[13px] text-cream/55">— Participant 1, VP Engineering</p>
+        <p class="mt-6 text-[13px] text-cream/60">— Participant 1, VP Engineering</p>
       </div>
     </div>
     <div class="flex flex-col justify-center">
@@ -235,23 +245,29 @@
   </section>
 
   <!-- ============ DATA SCIENCE ANALYSIS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="feasibility" data-chapter="Feasibility" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Feasibility</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">Our data scientist's analysis of the search capabilities</h2>
       <img src="https://placehold.co/1200x650/FFFFFF/17140F?text=Data+Scientist+Search+Capability+Analysis&font=inter" class="rounded-2xl border border-black/10 w-full h-auto mb-10" alt="Data scientist's analysis of the search capabilities" />
 
       <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-      <div class="flex flex-wrap gap-3">
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Internal systems analysis</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Data scientist consultations</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Feature opportunity mapping</span>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Internal systems analysis</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Data scientist consultations</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Feature opportunity mapping</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ STAKEHOLDER BUY-IN ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="alignment" data-chapter="Alignment" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Alignment</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Getting stakeholder buy-in was crucial for turning our vision into reality</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-6">
@@ -273,15 +289,21 @@
     <img src="https://placehold.co/1200x600/FFFFFF/17140F?text=Competitive+Analysis+of+Search+Capabilities&font=inter" class="rounded-2xl border border-black/10 w-full h-auto mb-10" alt="Competitive analysis of other recognition products' search capabilities" />
 
     <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-    <div class="flex flex-wrap gap-3">
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Competitive market analysis</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Sales rep interviews</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Prospect feedback collection</span>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Competitive market analysis</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Sales rep interviews</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Prospect feedback collection</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ GREEN LIGHT / USER FLOW ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="green-light" data-chapter="Green Light" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Green light</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Connecting user issues to business opportunities won over our stakeholders' buy-in</h2>
@@ -296,7 +318,7 @@
   </section>
 
   <!-- ============ LO-FI PROTOTYPE TESTING ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="validation" data-chapter="Validation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Validation</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">
       I designed a lo-fi prototype, tested it with 10 internal users, and presented the feedback to my team
@@ -304,10 +326,16 @@
 
     <div class="mb-10">
       <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-      <div class="flex flex-wrap gap-3">
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Low-fidelity prototyping</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">User testing sessions (10 users)</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">User Flow</span>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Low-fidelity prototyping</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">User testing sessions (10 users)</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">User Flow</p>
+        </div>
       </div>
     </div>
 
@@ -332,7 +360,7 @@
   </section>
 
   <!-- ============ PROFILE PAGE ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="iteration" data-chapter="Iteration" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Iteration</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">
@@ -353,7 +381,7 @@
   </section>
 
   <!-- ============ CONNECTING VIA TEAMS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="connecting-the-dots" data-chapter="Connecting the Dots" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Connecting the dots</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Users could connect with the other employee through email, phone, or chat</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-10">
@@ -364,15 +392,21 @@
     <img src="https://placehold.co/1200x650/FFFFFF/17140F?text=Teams%27+New+Chat+Window&font=inter" class="rounded-2xl border border-black/10 w-full h-auto mb-12" alt="Teams' new chat window" />
 
     <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-    <div class="flex flex-wrap gap-3">
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Interactive prototype</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Hi-Fi Design</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Final product video</span>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Interactive prototype</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Hi-Fi Design</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Final product video</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ FINAL PRODUCT VIDEO ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="launch" data-chapter="Launch" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Launch</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">
@@ -391,7 +425,7 @@
   </section>
 
   <!-- ============ IMPACT & RESULTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="impact-results" data-chapter="Impact &amp; Results" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-6 text-center">Impact &amp; results</p>
     <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight text-center">
       The organization observed a<br class="hidden sm:block" />
@@ -417,7 +451,7 @@
   </section>
 
   <!-- ============ MORE WORK ============ -->
-  <section class="border-t border-black/[0.07] dashed-x bg-fog/60">
+  <section class="border-t border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-10">Check out what else I've worked on</p>
       <div class="grid sm:grid-cols-3 gap-6">
@@ -436,6 +470,9 @@
       </div>
     </div>
   </section>
+
+    </main>
+  </div>
 
   <!-- ============ FOOTER / CTA ============ -->
   <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
@@ -465,6 +502,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/chapter-nav.js"></script>
 
 </body>
 </html>

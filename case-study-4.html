@@ -28,8 +28,8 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #F7F4EF; }
-  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
   .grain::before {
     content: '';
     position: absolute; inset: 0;
@@ -83,8 +83,12 @@
     </a>
   </div>
 
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
   <!-- ============ CASE STUDY HEADER ============ -->
-  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
     <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Case Study 04 — Lightspeed</p>
     <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
       Designing convenience to win customer loyalty
@@ -125,7 +129,7 @@
   </section>
 
   <!-- ============ FINAL PRODUCT ============ -->
-  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+  <section id="final-product" data-chapter="Final Product" class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">The Points App — one place for loyalty cards and coupons.</h2>
 
@@ -138,7 +142,7 @@
   </section>
 
   <!-- ============ THE PROBLEM ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="the-problem" data-chapter="The Problem" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">The problem</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
@@ -164,25 +168,45 @@
   </section>
 
   <!-- ============ OVERVIEW OF STEPS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="process" data-chapter="Process" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Process</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Overview of steps taken</h2>
-    <div class="flex flex-wrap gap-3">
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Quantitative research</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Competitive analysis</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Problem statement definition</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">User persona</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Core functional JTBD</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">How Might We questions</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">User storyboarding</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Task flow</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Low-fi wireframing</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Prototyping &amp; testing</span>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Quantitative research</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Competitive analysis</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Problem statement definition</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">User persona</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Core functional JTBD</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">How Might We questions</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">User storyboarding</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Task flow</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Low-fi wireframing</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Prototyping &amp; testing</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ QUANTITATIVE RESEARCH ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="discovery" data-chapter="Discovery" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Discovery</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Quantitative research &amp; data synthesis</h2>
@@ -195,7 +219,7 @@
   </section>
 
   <!-- ============ COMPETITIVE ANALYSIS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="competitive-research" data-chapter="Competitive Research" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Competitive research</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Competitive analysis: pros &amp; cons</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-10">
@@ -206,7 +230,7 @@
   </section>
 
   <!-- ============ PROBLEM STATEMENT ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="root-cause" data-chapter="Root Cause" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Root cause</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Problem statement: the 5 whys</h2>
@@ -218,7 +242,7 @@
   </section>
 
   <!-- ============ USER PERSONA ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+  <section id="user-persona" data-chapter="User Persona" class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
     <div>
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Who we're designing for</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
@@ -243,9 +267,9 @@
     <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
       <div class="absolute inset-0 grain opacity-40"></div>
       <div class="relative">
-        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">Meet Mikey</p>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/60 mb-6">Meet Mikey</p>
         <p class="font-serif text-3xl mb-1">Mikey</p>
-        <p class="text-[13px] text-cream/55 mb-6">38 &middot; Developer &middot; Toronto</p>
+        <p class="text-[13px] text-cream/60 mb-6">38 &middot; Developer &middot; Toronto</p>
         <p class="font-serif text-xl leading-snug">
           "I want my brand loyalty to be rewarded."
         </p>
@@ -254,7 +278,7 @@
   </section>
 
   <!-- ============ JTBD ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="framing-the-need" data-chapter="Framing the Need" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Framing the need</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Core functional Jobs-To-Be-Done</h2>
@@ -271,7 +295,7 @@
   </section>
 
   <!-- ============ HMW / STORYBOARD / TASK FLOW ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="ideation" data-chapter="Ideation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Ideation</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">How Might We, storyboarding &amp; task flow</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-10">
@@ -286,7 +310,7 @@
   </section>
 
   <!-- ============ STYLE GUIDE & WIREFRAMES ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="foundations" data-chapter="Foundations" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Foundations</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Style guide &amp; low-fi wireframes</h2>
@@ -302,7 +326,7 @@
   </section>
 
   <!-- ============ RESULTS: PROTOTYPE & TESTING ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="validation" data-chapter="Validation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Results</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Hi-fi prototype &amp; user testing</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-10">
@@ -328,7 +352,7 @@
   </section>
 
   <!-- ============ FINAL PRODUCT SCREENS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="final-screens" data-chapter="Final Product Screens" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Final product</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">The Points App</h2>
@@ -340,7 +364,7 @@
   </section>
 
   <!-- ============ IMPACT & RESULTS ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
+  <section id="impact-results" data-chapter="Impact &amp; Results" class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-6">Impact &amp; results</p>
     <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
       A unified app that made<br class="hidden sm:block" />
@@ -350,7 +374,7 @@
   </section>
 
   <!-- ============ FINAL THOUGHTS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="reflection" data-chapter="Reflection" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Reflection</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">Final thoughts</h2>
@@ -369,7 +393,7 @@
   </section>
 
   <!-- ============ MORE WORK ============ -->
-  <section class="bg-fog/60">
+  <section class="border-t border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-10">Check out what else I've worked on</p>
       <div class="grid sm:grid-cols-3 gap-6">
@@ -388,6 +412,9 @@
       </div>
     </div>
   </section>
+
+    </main>
+  </div>
 
   <!-- ============ FOOTER / CTA ============ -->
   <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
@@ -417,6 +444,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/chapter-nav.js"></script>
 
 </body>
 </html>

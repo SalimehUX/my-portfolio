@@ -28,8 +28,8 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #F7F4EF; }
-  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.225) 1px, transparent 1px); background-size: 8px 1px; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
   .grain::before {
     content: '';
     position: absolute; inset: 0;
@@ -83,8 +83,12 @@
     </a>
   </div>
 
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
   <!-- ============ CASE STUDY HEADER ============ -->
-  <section class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
     <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Case Study 03 — Achievers</p>
     <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.8rem] max-w-3xl">
       Optimizing the form landing page for user completion
@@ -128,7 +132,7 @@
   </section>
 
   <!-- ============ FINAL PRODUCT ============ -->
-  <section class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
+  <section id="final-product" data-chapter="Final Product" class="max-w-6xl mx-auto px-6 pb-24 sm:pb-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">This is the final product</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10">A customizable form that adjusts to the user's request.</h2>
 
@@ -141,7 +145,7 @@
   </section>
 
   <!-- ============ THE PROBLEM ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="the-problem" data-chapter="The Problem" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">The problem</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">
@@ -158,17 +162,23 @@
 
       <div class="max-w-2xl">
         <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-        <div class="flex flex-wrap gap-3">
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">5 user interviews</span>
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Affinity mapping</span>
-          <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">PowerPoint slides</span>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">5 user interviews</p>
+          </div>
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">Affinity mapping</p>
+          </div>
+          <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+            <p class="text-sm font-semibold text-ink">PowerPoint slides</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ KEY USER INSIGHT ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+  <section id="voice-of-the-user" data-chapter="Voice of the User" class="max-w-6xl mx-auto px-6 py-24 sm:py-28 grid lg:grid-cols-[1.3fr_1fr] gap-10">
     <div>
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Voice of the user</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8">
@@ -182,18 +192,18 @@
     <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden">
       <div class="absolute inset-0 grain opacity-40"></div>
       <div class="relative">
-        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/40 mb-6">In their words</p>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-cream/60 mb-6">In their words</p>
         <p class="font-serif text-xl sm:text-2xl leading-snug">
           "Does customer care apply to me or only to existing customers? We mainly use Zoom to
           communicate with third parties."
         </p>
-        <p class="mt-6 text-[13px] text-cream/55">— Director of HR, Springhill</p>
+        <p class="mt-6 text-[13px] text-cream/60">— Director of HR, Springhill</p>
       </div>
     </div>
   </section>
 
   <!-- ============ TECHNICAL CONSTRAINTS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="reality-check" data-chapter="Reality Check" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Reality check</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">3 technical constraints stakeholder interviews revealed</h2>
@@ -218,7 +228,7 @@
   </section>
 
   <!-- ============ COMPETITIVE INTEL ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="competitive-research" data-chapter="Competitive Research" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Competitive research</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Competitive intel: they distinguished current users from fresh prospects</h2>
     <p class="max-w-2xl text-[15px] leading-relaxed text-ink/75 mb-10">
@@ -258,14 +268,18 @@
     </div>
 
     <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mb-3">Activities and outputs</p>
-    <div class="flex flex-wrap gap-3">
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Competitive analysis</span>
-      <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Stakeholder checkpoint</span>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Competitive analysis</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+        <p class="text-sm font-semibold text-ink">Stakeholder checkpoint</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ PRIORITY MATRIX ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="prioritization" data-chapter="Prioritization" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Prioritization</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Priority matrix: revealed 3 things to prioritize</h2>
@@ -314,16 +328,22 @@
       </div>
 
       <p class="text-[13px] font-mono uppercase tracking-widest text-ink/75 mt-10 mb-3">Activities and outputs</p>
-      <div class="flex flex-wrap gap-3">
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Root cause analysis</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Stakeholder requests</span>
-        <span class="pill text-xs border border-black/10 rounded-full px-4 py-2 text-ink/75">Task flows</span>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Root cause analysis</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Stakeholder requests</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] bg-yellow-400/10 px-5 py-6 text-center">
+          <p class="text-sm font-semibold text-ink">Task flows</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ OUR APPROACH ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="direction" data-chapter="Direction" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Direction</p>
     <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">Our approach</h2>
     <div class="grid sm:grid-cols-2 gap-6">
@@ -347,7 +367,7 @@
   </section>
 
   <!-- ============ CONCLUSION / OLD vs NEW ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
+  <section id="conclusion" data-chapter="Conclusion" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet mb-3">Conclusion</p>
       <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">The new form puts the user's needs at the centre of the design</h2>
@@ -365,7 +385,7 @@
   </section>
 
   <!-- ============ TESTIMONIAL ============ -->
-  <section class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="testimonial" data-chapter="Testimonial" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
     <div class="rounded-2xl card-glow grain relative overflow-hidden p-8 max-w-2xl">
       <span class="font-serif text-4xl text-white/65 leading-none">"</span>
       <p class="mt-2 font-serif text-xl sm:text-2xl text-white leading-snug">
@@ -378,7 +398,7 @@
   </section>
 
   <!-- ============ IMPACT & RESULTS ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
+  <section id="impact-results" data-chapter="Impact &amp; Results" class="border-t border-b border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28 text-center">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-6">Impact &amp; results</p>
       <p class="font-serif text-4xl sm:text-6xl tracking-tight leading-tight">
@@ -390,7 +410,7 @@
   </section>
 
   <!-- ============ MORE WORK ============ -->
-  <section class="border-t border-black/[0.07] dashed-x bg-fog/60">
+  <section class="border-t border-black/[0.07] dashed-x">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
       <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-10">Check out what else I've worked on</p>
       <div class="grid sm:grid-cols-3 gap-6">
@@ -409,6 +429,9 @@
       </div>
     </div>
   </section>
+
+    </main>
+  </div>
 
   <!-- ============ FOOTER / CTA ============ -->
   <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
@@ -438,6 +461,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/chapter-nav.js"></script>
 
 </body>
 </html>
