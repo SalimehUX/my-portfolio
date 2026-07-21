@@ -38,7 +38,7 @@
     pointer-events: none;
   }
   .card-glow {
-    background: radial-gradient(circle at 50% 50%, rgba(108,79,242,1) 0%, rgba(108,79,242,0) 100%);
+    background: radial-gradient(circle at 50% 50%, rgba(108,79,242,1) 0%, #FFFEFC 100%);
   }
 </style>
 </head>
@@ -67,21 +67,21 @@
 
   <!-- ============ HERO ============ -->
   <section id="top" class="relative max-w-6xl mx-auto px-6 pt-20 pb-10 sm:pt-28 sm:pb-14">
-    <div class="grid md:grid-cols-[1.15fr_1fr] gap-10 md:gap-14 items-center">
+    <div class="grid md:grid-cols-[auto_auto] md:justify-center gap-8 items-center">
       <div class="text-center md:text-left">
-        <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Product &amp; Growth Design — Toronto, CA</p>
-        <h1 class="font-serif leading-[1.08] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.6rem]">
+        <p class="text-[15px] sm:text-[16px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-4">Product &amp; Growth Design — Toronto, CA</p>
+        <h1 class="font-serif leading-[1.08] tracking-tight text-[3.1rem] sm:text-[3.3rem] lg:text-[3.5rem]">
           Hi, I'm Salimeh.<br />
-          I'm a <em class="italic font-normal text-violet">CRO</em> and <em class="italic font-normal text-violet">Growth Designer</em> from Toronto.
+          I'm a <em class="italic font-normal text-violet">CRO</em> and<br class="hidden lg:block" /> <em class="italic font-normal text-violet">Growth Designer</em>.
         </h1>
-        <p class="mt-7 max-w-xl mx-auto md:mx-0 text-[15px] sm:text-base leading-relaxed text-ink/75">
-          I turn design decisions into measurable results — fixing what's not
+        <p class="mt-7 max-w-xl mx-auto md:mx-0 text-[23px] sm:text-[24px] leading-relaxed text-ink/75">
+          I turn design decisions into measurable results, fixing what's not
           converting, or building the process from scratch when nothing exists yet.
         </p>
       </div>
-      <div class="relative mx-auto md:mx-0 w-56 sm:w-64 md:w-full max-w-xs overflow-hidden rounded-2xl aspect-[4/5] grain">
+      <div class="relative mx-auto md:mx-0 md:ml-auto w-56 sm:w-64 md:w-80 overflow-hidden rounded-full aspect-square grain">
         <img src="images/profile-salimeh.png" alt="Salimeh, Product &amp; Growth Designer" class="absolute inset-0 w-full h-full object-cover" />
-        <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full"></div>
       </div>
     </div>
   </section>
@@ -89,41 +89,19 @@
   <!-- ============ WORKED WITH ============ -->
   <section id="worked-with" class="max-w-6xl mx-auto px-6 pb-16 sm:pb-20">
     <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-      <img src="images/logos/clever-digital-marketing.svg" alt="Clever Digital Marketing" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
-      <img src="images/logos/achievers.png" alt="Achievers" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
+      <img src="images/logos/clever-digital-marketing.svg" alt="Clever Digital Marketing" class="h-[28px] sm:h-[32px] w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
+      <img src="images/logos/achievers.png" alt="Achievers" class="h-[20px] sm:h-[24px] w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
       <img src="images/logos/lightspeed.png" alt="Lightspeed" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
       <img src="images/logos/behavioral-design-academy.png" alt="Behavioral Design Academy" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
       <img src="images/logos/repurpose-house.png" alt="Repurpose House" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition" />
     </div>
   </section>
 
-  <!-- ============ AT A GLANCE ============ -->
-  <section class="border-t border-b border-black/[0.07] dashed-x">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4">
-      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
-        <p class="font-serif text-4xl sm:text-5xl">8+</p>
-        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/75">Clients &amp; teams served</p>
-      </div>
-      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
-        <p class="font-serif text-4xl sm:text-5xl">4</p>
-        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/75">Flagship case studies</p>
-      </div>
-      <div class="py-10 px-2 sm:px-8 border-r border-black/[0.02] last:border-r-0">
-        <p class="font-serif text-4xl sm:text-5xl">25%</p>
-        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/75">Avg. lift in engagement</p>
-      </div>
-      <div class="py-10 px-2 sm:px-8">
-        <p class="font-serif text-4xl sm:text-5xl">3</p>
-        <p class="mt-2 text-[11px] font-mono uppercase tracking-widest text-ink/75">Platforms — iOS, Android, Web</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ SELECTED WORK ============ -->
-  <section id="work" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+  <section id="work" class="max-w-6xl mx-auto px-6 pt-8 pb-24 sm:pt-10 sm:pb-28">
     <div class="flex items-end justify-between gap-4 mb-14">
       <div>
-        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Selected work</p>
+        <p class="text-[15px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Selected work</p>
         <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Case studies &amp; shipped work</h2>
       </div>
       <span class="hidden sm:block text-sm text-ink/75 font-mono">05 projects</span>
@@ -131,140 +109,8 @@
 
     <div class="flex flex-col">
 
-      <!-- Project 1 -->
-      <a href="case-study-1.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0">
-        <div class="order-2 md:order-1">
-          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
-            <span class="text-violet">*</span>01
-          </p>
-          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">UI Redesign of Product Pages</h3>
-          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: 5 comprehensible product pages</p>
-          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 20% increase in qualified leads</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">CRO</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX/UI Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Heuristic Evaluation</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Web Design</span>
-          </div>
-          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
-            More details
-            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
-          <img src="images/case-study-1/thumbnail-hero.png" alt="Redesigning product page UI to build trust" class="absolute inset-0 w-full h-full object-contain p-6 transition duration-500 ease-out group-hover:scale-105" />
-          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
-            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
-              Redesigning product page UI<br />to build trust
-            </p>
-          </div>
-          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
-        </div>
-      </a>
-
-      <!-- Project 2 -->
-      <a href="case-study-2.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12">
-        <div class="order-2 md:order-1">
-          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
-            <span class="text-violet">*</span>02
-          </p>
-          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Collaboration Feature</h3>
-          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: Easily finding the expert within the company</p>
-          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 25% higher product engagement</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Feature Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">User Research</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">B2B SaaS</span>
-          </div>
-          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
-            More details
-            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
-          <img src="images/case-study-2/thumbnail-hero.png" alt="Turning a recognition product into a collaborator finding tool" class="absolute inset-0 w-full h-full object-cover object-top scale-105 translate-y-[26px] transition duration-500 ease-out group-hover:scale-110" />
-          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
-            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
-              Turning a recognition product into a collaborator finding tool
-            </p>
-          </div>
-          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
-        </div>
-      </a>
-
-      <!-- Project 3 -->
-      <a href="case-study-3.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12">
-        <div class="order-2 md:order-1">
-          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
-            <span class="text-violet">*</span>03
-          </p>
-          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Form Landing Page</h3>
-          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: A fun interactive form that made sense</p>
-          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 80% higher user completion rate</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX/UI Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Interaction Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Conversion Optimization</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">User Testing</span>
-          </div>
-          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
-            More details
-            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
-          <img src="images/case-study-3/thumbnail-hero.png" alt="Optimizing the form landing page for user completion" class="absolute inset-0 w-full h-full object-cover object-top scale-105 translate-y-[26px] transition duration-500 ease-out group-hover:scale-110" />
-          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
-            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
-              Optimizing the form landing page for user completion
-            </p>
-          </div>
-          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
-        </div>
-      </a>
-
-      <!-- Project 4 -->
-      <a href="case-study-4.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12">
-        <div class="order-2 md:order-1">
-          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
-            <span class="text-violet">*</span>04
-          </p>
-          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Points Loyalty App</h3>
-          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: 85% Customer Satisfaction Score</p>
-          <p class="max-w-md text-sm text-violet font-medium">Biz impact: Brand loyalty made easy</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX Research</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UI Design</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Mobile App</span>
-            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Persona &amp; JTBD</span>
-          </div>
-          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
-            More details
-            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
-          <img src="images/case-study-4/thumbnail-hero.png" alt="Designing convenience to win customer loyalty" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 ease-out group-hover:scale-105" />
-          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
-            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
-              Designing convenience to win customer loyalty
-            </p>
-          </div>
-          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
-        </div>
-      </a>
-
       <!-- Project 5 -->
-      <a href="case-study-5.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-b border-black/[0.07] py-10 sm:py-12">
+      <a href="case-study-5.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0 last:border-b">
         <div class="order-2 md:order-1">
           <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
             <span class="text-violet">*</span>05
@@ -286,10 +132,142 @@
           </span>
         </div>
         <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
-          <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition duration-300"></div>
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
+          <img src="images/case-study-5/thumbnail-hero.jpg" alt="Building an AI-readable design system for faster design" class="absolute inset-0 w-full h-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
             <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
               Building an AI-readable design system for faster design
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+      </a>
+
+      <!-- Project 1 -->
+      <a href="case-study-1.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0 last:border-b">
+        <div class="order-2 md:order-1">
+          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
+            <span class="text-violet">*</span>01
+          </p>
+          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">UI Redesign of Product Pages</h3>
+          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: 5 comprehensible product pages</p>
+          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 20% increase in qualified leads</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">CRO</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX/UI Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Heuristic Evaluation</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Web Design</span>
+          </div>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
+            More details
+            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </div>
+        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <img src="images/case-study-1/thumbnail-hero.jpg" alt="Redesigning product page UI to build trust" class="absolute inset-0 w-full h-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Redesigning product page UI<br />to build trust
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="case-study-3.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0 last:border-b">
+        <div class="order-2 md:order-1">
+          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
+            <span class="text-violet">*</span>03
+          </p>
+          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Form Landing Page</h3>
+          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: A fun interactive form that made sense</p>
+          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 80% higher user completion rate</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX/UI Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Interaction Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Conversion Optimization</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">User Testing</span>
+          </div>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
+            More details
+            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </div>
+        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <img src="images/case-study-3/thumbnail-hero.jpg" alt="Optimizing the form landing page for user completion" class="absolute inset-0 w-full h-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Optimizing the form landing page for user completion
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="case-study-2.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0 last:border-b">
+        <div class="order-2 md:order-1">
+          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
+            <span class="text-violet">*</span>02
+          </p>
+          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Collaboration Feature</h3>
+          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: Easily finding the expert within the company</p>
+          <p class="max-w-md text-sm text-violet font-medium">Biz impact: 25% higher product engagement</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Feature Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">User Research</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">B2B SaaS</span>
+          </div>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
+            More details
+            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </div>
+        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <img src="images/case-study-2/thumbnail-hero.jpg" alt="Turning a recognition product into a collaborator finding tool" class="absolute inset-0 w-full h-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Turning a recognition product into a collaborator finding tool
+            </p>
+          </div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="case-study-4.html" class="group grid md:grid-cols-[1fr_1.15fr] gap-8 md:gap-14 items-center border-t border-black/[0.07] py-10 sm:py-12 first:border-t-0 first:pt-0 last:border-b">
+        <div class="order-2 md:order-1">
+          <p class="flex items-center gap-2 font-serif text-lg text-ink/40 mb-3">
+            <span class="text-violet">*</span>04
+          </p>
+          <h3 class="font-serif text-2xl sm:text-[1.7rem] tracking-tight">Points Loyalty App</h3>
+          <p class="mt-4 max-w-md text-sm text-ink/75">User impact: 85% Customer Satisfaction Score</p>
+          <p class="max-w-md text-sm text-violet font-medium">Biz impact: Brand loyalty made easy</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UX Research</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">UI Design</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Mobile App</span>
+            <span class="text-xs font-medium bg-fog/80 text-ink/80 rounded-full px-3.5 py-2">Persona &amp; JTBD</span>
+          </div>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium">
+            More details
+            <span class="grid place-items-center w-7 h-7 rounded-full border border-ink/15 group-hover:bg-ink group-hover:text-cream transition">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </div>
+        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl aspect-[4/3] card-glow grain">
+          <img src="images/case-study-4/thumbnail-hero.jpg" alt="Designing convenience to win customer loyalty" class="absolute inset-0 w-full h-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+          <div class="absolute inset-0 bg-ink/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-8 text-center">
+            <p class="font-serif text-white text-2xl sm:text-[1.7rem] leading-snug">
+              Designing convenience to win customer loyalty
             </p>
           </div>
           <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
@@ -302,7 +280,7 @@
   <!-- ============ ABOUT STRIP ============ -->
   <section id="about-strip" class="border-t border-b border-black/[0.07] dashed-x bg-fog/60">
     <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-16">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75">A bit about me</p>
+      <p class="text-[15px] font-mono uppercase tracking-[0.2em] text-ink/75">A bit about me</p>
       <div>
         <p class="font-serif text-2xl sm:text-3xl leading-snug tracking-tight">
           Empathetic research, iterative design, and a bias toward measurable outcomes —
@@ -319,7 +297,7 @@
 
   <!-- ============ TESTIMONIALS ============ -->
   <section id="testimonials" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
-    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Kind words</p>
+    <p class="text-[15px] font-mono uppercase tracking-[0.2em] text-ink/75 mb-3">Kind words</p>
     <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-14">What's it like to work with me?</h2>
 
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
@@ -461,7 +439,7 @@
   <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
     <div class="absolute inset-0 grain opacity-60"></div>
     <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
-      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
+      <p class="text-[15px] font-mono uppercase tracking-[0.2em] text-cream/40 mb-5">Get in touch</p>
       <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
         Let's collaborate<span class="text-violet">.</span>
       </h2>
