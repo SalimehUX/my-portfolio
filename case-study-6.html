@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Building an Agentic AI Design Process for Conversion-Focused UI — Alpha CDM | Salimeh Miller</title>
+<meta name="description" content="How orchestrating Claude Code inside a Figma sandbox, against a design system built for AI, reduced design and build time from 3 weeks to 3–5 days at Alpha CDM." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          cream: '#F7F4EF',
+          ink: '#17140F',
+          violet: '#6C4FF2',
+          'violet-deep': '#3F2E93',
+          'red-deep': '#7A1518',
+          fog: '#EDE9E1',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #FFFEFC; }
+  .dashed-x { background-image: linear-gradient(to right, rgba(216,210,196,0.01) 1px, transparent 1px); background-size: 8px 1px; }
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .card-glow {
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgba(255,255,255,0.10), transparent 70%),
+      linear-gradient(160deg, #201B2E 0%, #14111C 55%, #0D0B12 100%);
+  }
+  .num-badge { font-variant-numeric: tabular-nums; }
+  /* Visible keyboard focus everywhere, for WCAG 2.4.7 / 2.4.11 */
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #3F2E93;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .skip-link {
+    position: absolute; left: 1rem; top: -3rem;
+    background: #17140F; color: #F7F4EF;
+    padding: 0.75rem 1.25rem; border-radius: 9999px;
+    font-size: 13px; font-weight: 500; z-index: 100;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+</style>
+</head>
+<body class="text-ink font-sans antialiased selection:bg-violet selection:text-white">
+
+  <a href="#case-study-main" class="skip-link">Skip to main content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 bg-cream/80 backdrop-blur-md border border-black/5 rounded-full px-3 py-2 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <a href="index.html#top" class="flex items-center gap-2 pl-2 pr-3 py-1 shrink-0">
+        <span class="grid place-items-center w-8 h-8 rounded-full bg-ink text-cream font-serif text-sm">SM</span>
+        <span class="hidden sm:block font-serif text-[15px] tracking-tight">Salimeh Miller</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-[13px] font-medium text-ink/75" aria-label="Primary">
+        <a href="index.html#work" class="px-4 py-2 rounded-full bg-black/5 text-ink">Work</a>
+        <a href="about.html" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">About</a>
+        <a href="index.html#testimonials" class="px-4 py-2 rounded-full hover:bg-black/5 hover:text-ink transition">Testimonials</a>
+      </nav>
+      <a href="index.html#contact" class="shrink-0 inline-flex items-center gap-2 bg-ink text-cream text-[13px] font-medium pl-4 pr-1.5 py-1.5 rounded-full hover:bg-violet transition">
+        Let's talk
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-cream/15">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ BACK LINK ============ -->
+  <div class="max-w-6xl mx-auto px-6 pt-8">
+    <a href="index.html#work" class="inline-flex items-center gap-2 text-[13px] font-mono uppercase tracking-widest text-ink hover:text-violet-deep transition">
+      <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M9 5H1M1 5L4.5 1.5M1 5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All work
+    </a>
+  </div>
+
+  <div class="lg:grid lg:grid-cols-[268px_1fr]">
+    <div data-chapter-nav data-chapter-nav-target="#case-study-main" class="hidden lg:block"></div>
+    <main id="case-study-main" class="min-w-0">
+
+  <!-- ============ CASE STUDY HEADER ============ -->
+  <section id="intro" data-chapter="Intro" class="max-w-6xl mx-auto px-6 pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <p class="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-ink mb-4">Case Study 06 — Alpha CDM</p>
+    <h1 class="font-serif leading-[1.04] tracking-tight text-[2.4rem] sm:text-5xl lg:text-[3.4rem] max-w-3xl">
+      Building an agentic AI design process for conversion-focused UI
+    </h1>
+    <p class="mt-7 max-w-2xl text-[15px] sm:text-lg leading-relaxed text-ink/80">
+      Orchestrating Claude Code inside a Figma sandbox against a design system built for AI reduced design and
+      build time from <span class="text-violet-deep font-semibold">3 weeks to 3–5 days.</span>
+    </p>
+    <p class="mt-5 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-ink/80">
+      Claude Code + Figma MCP, guardrail architecture, and a research pipeline that fed real customer language
+      into every design decision.
+    </p>
+
+    <!-- Meta grid -->
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-black/[0.07] pt-10">
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Role</p>
+        <p class="text-sm font-medium">Sr. UX/UI Designer</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Year</p>
+        <p class="text-sm font-medium">2026</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Duration</p>
+        <p class="text-sm font-medium">Day 1 to Day 46 of the sprint</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink mb-2">Deliverables</p>
+        <p class="text-sm font-medium leading-relaxed">Agentic design workflow, guardrail architecture (CLAUDE.md, sub-agent verification), 8 vertical-specific prompt templates, voice-of-customer research pipeline, stakeholder-validated proof of concept, 4 sample landing page templates</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTENTION ============ -->
+  <section id="intention" data-chapter="Intention" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-24">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Intention</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight max-w-2xl leading-snug mb-8">Why agentic AI, and what was our goal</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Leadership's mandate was to raise conversion with speed: design faster, build faster, see results
+        faster. That mattered, but speed alone doesn't produce pages that convert. That part was mine.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        <strong class="font-semibold text-ink">My goal was quality</strong> — layouts and copy that actually
+        spoke to users, addressed their hesitations, and helped them picture their own outcome. I'd already
+        proven this mattered: some of the first pages I built here outperformed everything already live, because
+        I got the details right — copy, imagery, contrast, accessibility, all working together.
+      </p>
+      <div class="max-w-2xl border-l-2 border-violet-deep/50 pl-6">
+        <p class="font-serif text-lg sm:text-xl leading-snug text-ink">
+          Agentic AI became the way to do both at once — not just a shortcut to speed, but a way to spend real
+          time on competitive analysis, sales calls, and customer reviews, then feed AI the judgment a skilled
+          designer brings, so speed and quality weren't a tradeoff.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DISCOVERY ============ -->
+  <section id="discovery" data-chapter="Discovery" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Discovery</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Testing 5 AI design tools</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+      I tested five tools to see which could actually build inside our design system, not just generate ideas.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6 mb-10">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Lovable</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Strong for early ideation and thinking outside the box, but defaults to React as its own design system — results converged into similar-looking designs after repeated use.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Magic Path</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Also strong for exploring layout concepts, but output lived on the web rather than in Figma, requiring a plugin translation step that added friction rather than removing it.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Figma Make</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Worked natively inside Figma, but React's internal design system kept overriding the specs I'd defined, even with guardrails set — useful for sections, unreliable for a full page.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Claude Design</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Excellent at generating multiple concepts and understanding design preferences through conversation, and could translate into Figma, but that step used a large number of tokens and added real overhead.</p>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border-2 border-violet-deep/40 bg-violet/[0.05] p-6 max-w-2xl mb-12">
+      <p class="text-[11px] font-mono uppercase tracking-widest text-violet-deep mb-2">Chosen</p>
+      <p class="text-sm font-semibold text-ink mb-2">Claude Code</p>
+      <p class="text-sm text-ink/80 leading-relaxed">The only tool that worked directly inside our actual Figma file, respected our component structure and tokens, and could be guided reliably with the right setup.</p>
+    </div>
+
+    <img src="images/case-study-6/01-ai_design_tool_comparison.svg" alt="Comparison table: Lovable, Magic Path, and Figma Make each fail on-brand and production-ready criteria; Claude Design is a partial ideation-only match; Claude Code is the winner, Figma-native, on-brand, and production-ready." class="rounded-2xl border border-black/10 w-full h-auto bg-white" />
+  </section>
+
+  <!-- ============ SETUP ============ -->
+  <section id="setup" data-chapter="Setup" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Setup</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">The environment behind the workflow</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        Before Claude Code could design anything, I needed a real technical foundation. Once that was in place,
+        Claude Code could read our design system directly and make changes inside Figma itself, not just generate
+        isolated mockups.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="text-sm font-semibold text-ink mb-2">IDE</p>
+          <p class="text-sm text-ink/80 leading-relaxed">Started in Antigravity, then moved to VS Code</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="text-sm font-semibold text-ink mb-2">Version control</p>
+          <p class="text-sm text-ink/80 leading-relaxed">GitHub</p>
+        </div>
+        <div class="rounded-2xl border border-black/[0.08] p-6">
+          <p class="text-sm font-semibold text-ink mb-2">Figma MCP</p>
+          <p class="text-sm text-ink/80 leading-relaxed">A live connection between Claude Code and our Figma files</p>
+        </div>
+      </div>
+
+      <img src="images/case-study-6/02-agentic_workflow_setup_v3.svg" alt="Diagram: Antigravity (tried first) and VS Code (IDE adopted) both feed into Claude Code, which connects to Figma MCP as a live connection. GitHub provides version control." class="mt-10 rounded-2xl border border-black/10 w-full h-auto bg-white" />
+    </div>
+  </section>
+
+  <!-- ============ GUARDRAILS ============ -->
+  <section id="guardrails" data-chapter="Guardrails" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Guardrails</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-4 max-w-2xl">Teaching Claude Code how to design inside our system</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-12">
+      Getting Claude Code to actually build inside Figma wasn't a matter of good prompting alone. It needed real
+      structure, the same way a new designer joining the team would need onboarding, not just a task list. I built
+      this around a <strong class="font-semibold text-ink">Three-Layer Model.</strong>
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-6 mb-12">
+      <div class="rounded-2xl border border-red-800/20 bg-red-50 p-6">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-2">Layer 1</p>
+        <p class="text-sm font-semibold text-ink mb-2">Invariants</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Things that never change: brand colours, core typography, accessibility minimums. Non-negotiable, regardless of the prompt.</p>
+      </div>
+      <div class="rounded-2xl border border-violet-deep/25 bg-violet/[0.06] p-6">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-2">Layer 2</p>
+        <p class="text-sm font-semibold text-ink mb-2">Patterns</p>
+        <p class="text-sm text-ink/80 leading-relaxed">The established ways we solve common problems: how a hero section is typically structured, how a form card behaves. Strong defaults, but not absolute.</p>
+      </div>
+      <div class="rounded-2xl border border-emerald-800/20 bg-emerald-50 p-6">
+        <p class="text-[11px] font-mono uppercase tracking-widest text-ink/85 mb-2">Layer 3</p>
+        <p class="text-sm font-semibold text-ink mb-2">Creative Latitude</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Where Claude Code was free to explore: copy variations, layout arrangements within a section, ways to visually address a specific user hesitation.</p>
+      </div>
+    </div>
+
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+      This structure lived in a <code class="font-mono text-[13px] bg-black/5 px-1.5 py-0.5 rounded">CLAUDE.md</code>
+      file that Claude Code referenced on every task, so instructions didn't need to be re-explained from scratch
+      each time.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Sub-agent verification</p>
+        <p class="text-sm text-ink/80 leading-relaxed">After Claude Code made a design decision, a second pass would check that decision against the Invariants and Patterns before it was treated as final.</p>
+      </div>
+      <div class="rounded-2xl border border-black/[0.08] p-6">
+        <p class="text-sm font-semibold text-ink mb-2">Reverse prompting</p>
+        <p class="text-sm text-ink/80 leading-relaxed">Asking Claude Code to explain back to me why it made a specific design choice, which surfaced misunderstandings early, before they became a pattern repeated across dozens of components.</p>
+      </div>
+    </div>
+
+    <img src="images/case-study-6/03-guardrails-claude-md-file.jpg" alt="VS Code screenshot of the CLAUDE.md file, showing the Website Design Recreation workflow instructions Claude Code referenced on every task." class="mt-10 rounded-2xl border border-black/10 w-full h-auto" />
+  </section>
+
+  <!-- ============ BUILDING THE PROOF OF CONCEPT ============ -->
+  <section id="proof-of-concept" data-chapter="Proof of Concept" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Building the proof of concept</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">Putting the guardrails to work</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        With the Three-Layer Model and CLAUDE.md in place, I set up a sandbox environment inside Figma, a space
+        where Claude Code could build freely without touching live production files. I had it generate multiple
+        landing page variations inside that sandbox, then worked through the bugs and inconsistencies that came
+        up: places where it misread a component, ignored a token, or made a layout choice that technically
+        followed the rules but didn't read well.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+        Each fix fed back into the guardrails themselves, tightening CLAUDE.md and adjusting how I prompted, so
+        the same mistake wouldn't repeat on the next page. By the time I had a handful of clean, on-brand pages
+        built entirely by Claude Code inside our real design system, I had something worth showing leadership.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ REALITY CHECK ============ -->
+  <section id="reality-check" data-chapter="Reality Check" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Reality check</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">Troubleshooting the connection</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-8">
+      The Claude Code–Figma MCP connection wasn't perfectly reliable out of the gate. Changes made in Figma
+      sometimes lagged before Claude Code could see them, and occasionally the agent would report a file as
+      empty when it was, in fact, fully populated — usually a sync timing issue rather than a real one.
+    </p>
+    <div class="max-w-2xl border-l-2 border-violet-deep/50 pl-6">
+      <p class="font-serif text-lg sm:text-xl leading-snug text-ink">
+        Neither was catastrophic, but both reinforced the same lesson: an agentic workflow needs verification
+        built in at every step, not blind trust that the connection is current.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ MARKET CHECK ============ -->
+  <section id="market-check" data-chapter="Market Check" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Market check</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">A gut check with other designers on where we stood against the market</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Around this time, I attended a Design X event in Toronto and spent time talking with designers from
+        companies of all sizes. Most hadn't incorporated AI into their design process at all. The ones who had
+        were still improvising, without anything close to a tested, repeatable workflow.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        That told me two things. We were further ahead than I'd realized, which was a good confidence check
+        heading into the harder parts of this build. And the conversations themselves were useful on their own —
+        a few designers shared ideas that later shaped how I explored using AI agents more accurately and
+        efficiently. This context ended up mattering beyond just my own confidence — it became part of how I
+        framed our position to leadership at the Day 28 demo.
+      </p>
+      <img src="images/case-study-6/04-designx-prompt-and-patio.jpg" alt="Photo collage from the Design X event in Toronto, including the Prosperity Arc booth and a Prompts &amp; Patio prompt-kit bingo card" class="rounded-2xl border border-black/10 w-full h-auto" />
+    </div>
+  </section>
+
+  <!-- ============ VALIDATION ============ -->
+  <section id="validation" data-chapter="Validation" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Validation</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">Proving the concept to leadership</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-8">
+      On day 28, I presented the working proof of concept to our co-founder, director of CRO, and director of
+      paid social: a design system built for AI, Claude Code operating inside a Figma sandbox, and a set of
+      clean, on-brand landing pages it had generated inside our real system. I also shared what I'd learned at
+      Design X, giving them a sense of where we stood against the market — not just what I'd built, but how far
+      ahead of the curve it put us.
+    </p>
+
+    <div class="rounded-2xl card-glow grain relative overflow-hidden p-8 max-w-2xl mb-8">
+      <span class="font-serif text-4xl text-white/65 leading-none">"</span>
+      <p class="mt-2 font-serif text-xl sm:text-2xl text-white leading-snug">
+        Full faith in the process I'd built.
+      </p>
+      <p class="mt-6 text-[13px] text-white/65">— Director of CRO, Alpha CDM</p>
+    </div>
+
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      The response was strong. Our director of paid social said what I'd shown was very promising, and that he
+      was looking forward to seeing how it progressed. That approval gave me the mandate to keep going — shifting
+      from proving the concept to scaling it.
+    </p>
+  </section>
+
+  <!-- ============ PHASE 2 DIVIDER ============ -->
+  <section id="phase-2" data-chapter="Phase 2" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-violet-deep mb-3">Phase 2</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">From proof of concept to production system</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        With that mandate, I scaled the work across every vertical we served. I built out prompt templates for
+        each one — bath renovation, kitchen refacing, roofing, flooring, basement renovation, and more — each
+        tailored to the specific language, concerns, and visual expectations of that category, while still
+        pulling from the same core design system underneath.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Alongside the vertical-specific work, I codified a set of universal CRO best practices — conversion
+        principles that applied across every page regardless of vertical — so Claude Code had a consistent
+        baseline to work from even as the specifics changed page to page.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+        I also started pressure-testing pages directly with AI: feeding it a live or in-progress page and asking
+        it a direct question, "give me five reasons a user wouldn't convert on this page." That became a fast,
+        repeatable way to catch weak points before a page ever went live, rather than waiting for real traffic
+        data to reveal them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CRO PRACTICES ============ -->
+  <section id="cro-practices" data-chapter="CRO Practices" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">CRO practices</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-10 max-w-2xl">10 universal CRO best practices</h2>
+    <img src="images/case-study-6/05-ten_universal_cro_practices_v3.svg" alt="10 universal CRO best practices: clear value prop, message match, strong CTA, no distractions, benefit-focused copy, low-friction forms, trust signals, strong above-fold, visual hierarchy, test and iterate" class="rounded-2xl border border-black/10 w-full h-auto bg-white" />
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section id="research" data-chapter="Research" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Research</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">Listening to the customer, directly</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        Beyond competitive analysis, I went to the source: how customers actually talked about their
+        hesitations, fears, and goals in their own words. I listened through real sales calls, paying close
+        attention to the specific language customers used when expressing doubt — about price, timeline, or
+        whether the result would actually look the way they imagined.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        I paired that with a deeper analysis of customer reviews, scraping and feeding Google reviews to Claude
+        so it could surface patterns at a scale I couldn't manually track. Together, this gave me a prioritized
+        list of the hesitations that came up most often, and I used that list to guide both design and copy
+        decisions, addressing each one directly instead of guessing at what might be holding users back.
+      </p>
+
+      <div class="rounded-2xl bg-ink text-cream p-8 relative overflow-hidden max-w-2xl">
+        <div class="absolute inset-0 grain opacity-40"></div>
+        <div class="relative">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-cream/60 mb-4">One example stands out</p>
+          <p class="text-[15px] leading-relaxed text-cream/90 mb-4">
+            I identified that a recurring cluster of hesitations — timeline, price, customer satisfaction, and
+            the actual quality of the work — kept showing up across calls and reviews for the same type of
+            project. I worked with AI to explore how a single card layout could address all four at once,
+            feeding it that research and asking it to be creative with how the information was presented.
+          </p>
+          <p class="font-serif text-xl sm:text-2xl leading-snug">
+            "A very creative way to showcase projects."
+          </p>
+          <p class="mt-4 text-[13px] text-cream/60">— Co-founder, Alpha CDM (unprompted)</p>
+        </div>
+      </div>
+
+      <img src="images/case-study-6/06a-past-projects-card-layout.jpg" alt="The past projects card layout showing project location, date, scope, and a 5-star review for each project" class="rounded-2xl border border-black/10 w-full h-auto mt-8" />
+
+      <img src="images/case-study-6/06b-customer-review-collage.svg" alt="Slack message with a co-founder's unprompted praise for the project card layout, next to a collage of paraphrased customer review summaries pulled from Trustpilot, Google, ConsumerAffairs, BBB, and Yelp" class="rounded-2xl border border-black/10 w-full h-auto mt-6 bg-white" />
+    </div>
+  </section>
+
+  <!-- ============ A/B TESTING WITH UNBOUNCE ============ -->
+  <section id="ab-testing" data-chapter="A/B Testing" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">A/B testing with Unbounce</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">Testing how users actually perceive before-and-after</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+      Not every insight came from research alone — some came from direct testing. Our senior CRO manager ran a
+      two-week A/B test on Unbounce to settle a specific question: what format best communicated a
+      before-and-after transformation to a mobile user.
+    </p>
+
+    <img src="images/case-study-6/07-before_after_ab_test_formats.svg" alt="Option A required a swipe to reveal the before-and-after; Option B stacked before above after, visible at once, and won the test" class="rounded-2xl border border-black/10 w-full h-auto bg-white mb-10" />
+
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      Removing the swipe interaction and letting users see both images at once, side by side in a single glance,
+      outperformed the format that required an extra action to complete the comparison. It reinforced a
+      principle that shaped later design decisions across the board:
+      <strong class="font-semibold text-ink">reducing friction, even something as small as a swipe, mattered
+      more than the format's novelty.</strong>
+    </p>
+  </section>
+
+  <!-- ============ OUTPUTS ============ -->
+  <section id="outputs" data-chapter="Outputs" class="border-t border-b border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Outputs</p>
+      <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">What shipped</h2>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-6">
+        The research and workflow came together in real, deployed work. I built 4 sample landing page templates,
+        each designed around the prioritized hesitations for its vertical, with copy, information architecture,
+        and content hierarchy structured to address concerns before they became objections.
+      </p>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-10">
+        Two concrete examples: the Alenco Windows SE page and the RBA social landing page. Both follow the same
+        structural logic: a UVP section built around specific, icon-led benefits rather than vague claims, a
+        local trust section addressing "why homeowners here trust this brand," a simple multi-step process
+        visual to reduce uncertainty about what happens after contact, and testimonials placed directly before
+        the final call to action, right where hesitation peaks.
+      </p>
+
+      <img src="images/case-study-6/08-output-screenshot.jpg" alt="Finished Renewal by Andersen and Alenco Windows landing pages, side by side, both with a UVP-led hero, benefit-led form, and trust badges" class="rounded-2xl border border-black/10 w-full h-auto mb-10" />
+
+      <p class="max-w-2xl text-[13px] leading-relaxed text-ink/70 italic">
+        As with the design system in Case Study 05, these pages were built and prepared for launch, but full
+        conversion data wasn't available before my role ended. What's shown here reflects the structural and
+        research-driven decisions behind the design, not measured performance.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ REFLECTION ============ -->
+  <section id="reflection" data-chapter="Reflection" class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-3">Reflection</p>
+    <h2 class="font-serif text-2xl sm:text-3xl tracking-tight mb-8 max-w-2xl">What I'd carry forward</h2>
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80 mb-12">
+      By day 46, this had grown from a five-tool experiment into a real, stakeholder-validated workflow: a
+      design system built for AI, guardrails that let Claude Code work reliably inside it, and a research
+      pipeline that fed real customer language into every design decision.
+    </p>
+
+    <p class="text-[13px] font-mono uppercase tracking-widest text-ink mb-6">A few things I'd carry into any future agentic workflow</p>
+    <div class="space-y-6 max-w-3xl mb-12">
+      <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+        <strong class="font-semibold text-ink">Speed and quality don't have to trade off.</strong> The mandate
+        was speed, my goal was quality, and the guardrail architecture — particularly the Three-Layer Model — is
+        what let both be true at once.
+      </p>
+      <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+        <strong class="font-semibold text-ink">Verification has to be built in, not assumed.</strong> Every tool
+        in this workflow, from Figma MCP to the AI agents themselves, needed active checking. Trusting outputs
+        at face value was the fastest way to compound small errors.
+      </p>
+      <p class="text-[15px] leading-relaxed text-ink/80 border-l-2 border-violet-deep/40 pl-6">
+        <strong class="font-semibold text-ink">The best design decisions came from listening, not guessing.</strong>
+        Sales calls and customer reviews consistently surfaced sharper insight than competitive analysis alone.
+        Feeding that directly into the design process is what made the work actually convert, not just look
+        polished.
+      </p>
+    </div>
+
+    <p class="max-w-2xl text-[15px] leading-relaxed text-ink/80">
+      This work was still in motion when the sprint ended — prompt templates were being refined, research was
+      ongoing, and the shift to production builds on Unbounce and WordPress hadn't happened yet. But the core
+      thesis held up:
+      <strong class="font-semibold text-ink">agentic AI, directed carefully by a designer who understands users,
+      can move fast without losing what makes a page actually work.</strong>
+    </p>
+  </section>
+
+  <!-- ============ MORE WORK ============ -->
+  <section class="border-t border-black/[0.07] dashed-x">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-28">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-ink mb-10">Check out what else I've worked on</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="case-study-5.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Prompt Kit Design System</p>
+          <p class="text-sm text-violet-deep font-medium">85% faster landing page design</p>
+        </a>
+        <a href="case-study-1.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">UI Redesign of Product Pages</p>
+          <p class="text-sm text-violet-deep font-medium">20% increase in qualified leads</p>
+        </a>
+        <a href="case-study-2.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Collaboration Feature</p>
+          <p class="text-sm text-violet-deep font-medium">25% higher product engagement</p>
+        </a>
+        <a href="case-study-3.html" class="group block rounded-2xl border border-black/[0.08] p-6 hover:border-ink/30 transition bg-white/60">
+          <p class="font-serif text-lg mb-2">Form Landing Page</p>
+          <p class="text-sm text-violet-deep font-medium">80% higher user completion rate</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    </main>
+  </div>
+
+  <!-- ============ FOOTER / CTA ============ -->
+  <footer id="contact" class="relative bg-ink text-cream overflow-hidden">
+    <div class="absolute inset-0 grain opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-10">
+      <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/70 mb-5">Get in touch</p>
+      <h2 class="font-serif text-4xl sm:text-6xl tracking-tight leading-[1.05]">
+        Let's collaborate<span class="text-violet">.</span>
+      </h2>
+      <p class="mt-6 max-w-md text-cream/70 text-[15px] leading-relaxed">
+        Have a product that needs a growth-minded design partner? I'd love to hear about it.
+      </p>
+      <a href="mailto:salimeh.miller@gmail.com" class="mt-9 inline-flex items-center gap-3 bg-cream text-ink text-sm font-medium px-6 py-4 rounded-full hover:bg-violet hover:text-cream transition">
+        salimeh.miller@gmail.com
+        <span class="grid place-items-center w-6 h-6 rounded-full bg-ink/10">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 9L9 1M9 1H2.5M9 1V7.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <div class="mt-20 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-cream/70 font-mono">
+        <p>© 2026 Salimeh Miller. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-cream transition">LinkedIn</a>
+          <a href="#" class="hover:text-cream transition">Dribbble</a>
+          <a href="#" class="hover:text-cream transition">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/chapter-nav.js"></script>
+
+</body>
+</html>
